@@ -1,0 +1,31 @@
+<h1>Traceroutes#index</h1>
+<p>Find me in app/views/traceroutes/index.html.erb</p>
+
+
+
+<div class="traceroute list">
+  <h2>Traceroutes</h2>
+
+  <%= link_to("Add New Traceroute", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Traceroute list">
+    <tr class="header">
+      <th>Id</th>
+      <th>Traceroute</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    <% @traceroutes.each do |traceroute| %>
+    <tr>
+      <td><%= traceroute.id %></td>
+      <td><%= traceroute.name %></td>
+      <td><%= traceroute.description %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => traceroute.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => traceroute.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => traceroute.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
