@@ -7,6 +7,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.references :point
       t.timestamps
     end
+    add_index :places, ["point_id"]
   end
 
   def self.down

@@ -4,6 +4,7 @@ class CreateMediumCategories < ActiveRecord::Migration
       t.string "name"
       t.timestamps
     end
+    add_index :medium_categories, ["name"]
   end
 
   def self.down

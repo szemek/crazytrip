@@ -7,6 +7,7 @@ class CreateTraceroutePoints < ActiveRecord::Migration
       t.integer "order"
       t.timestamps
     end
+    add_index :traceroute_points, ["traceroute_id","point_id"]
   end
 
   def self.down

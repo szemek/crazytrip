@@ -6,6 +6,7 @@ class CreateTraceroutes < ActiveRecord::Migration
       t.references :user
       t.timestamps
     end
+    add_index :traceroutes, ["user_id"]
   end
 
   def self.down
