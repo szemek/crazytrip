@@ -27,7 +27,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="31" selection-start="651" selection-end="651" vertical-scroll-proportion="0.64612675">
+            <state line="26" column="31" selection-start="651" selection-end="651" vertical-scroll-proportion="0.6866197">
               <folding />
             </state>
           </provider>
@@ -632,11 +632,6 @@
         <state line="20" column="36" selection-start="511" selection-end="511" vertical-scroll-proportion="0.5494506" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="68" selection-start="170" selection-end="170" vertical-scroll-proportion="0.18421052" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/public/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -661,21 +656,28 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20110409112631_create_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="30" selection-start="197" selection-end="197" vertical-scroll-proportion="0.15202703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="38" selection-start="172" selection-end="172" vertical-scroll-proportion="0.10135135" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110409112631_create_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="68" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="31" selection-start="651" selection-end="651" vertical-scroll-proportion="0.64612675">
+        <state line="26" column="31" selection-start="651" selection-end="651" vertical-scroll-proportion="0.6866197">
           <folding />
         </state>
       </provider>
