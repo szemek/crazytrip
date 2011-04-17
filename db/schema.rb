@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(:version => 20110409125343) do
   end
 
   create_table "points", :force => true do |t|
-    t.decimal  "x",          :precision => 10, :scale => 0
-    t.decimal  "y",          :precision => 10, :scale => 0
+    t.decimal  "x"
+    t.decimal  "y"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
