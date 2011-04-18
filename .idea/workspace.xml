@@ -24,37 +24,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/public/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="53" selection-start="164" selection-end="164" vertical-scroll-proportion="0.1056338">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="26" column="31" selection-start="651" selection-end="651" vertical-scroll-proportion="-16.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="11" selection-start="105" selection-end="105" vertical-scroll-proportion="-3.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/delete.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="71" selection-end="543" vertical-scroll-proportion="-1.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/traceroutes/delete.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="111" selection-start="506" selection-end="506" vertical-scroll-proportion="0.33771107">
               <folding />
             </state>
           </provider>
@@ -74,7 +56,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/place_category.rb" />
         <option value="$PROJECT_DIR$/app/models/place.rb" />
         <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/traceroute_controller.rb" />
@@ -90,6 +71,7 @@
         <option value="$PROJECT_DIR$/app/views/users/delete.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/traceroutes/delete.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/public/index.html.erb" />
       </list>
     </option>
   </component>
@@ -195,10 +177,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traceroutes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -215,6 +193,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,19 +497,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/traceroutes/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="183" selection-end="183" vertical-scroll-proportion="-4.2916665" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/traceroutes/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="44" selection-start="316" selection-end="316" vertical-scroll-proportion="0.32967034" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/public/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/traceroute.rb">
@@ -581,6 +553,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/traceroutes/delete.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="111" selection-start="506" selection-end="506" vertical-scroll-proportion="0.33771107">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/delete.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="71" selection-end="543" vertical-scroll-proportion="0.079225354">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="11" selection-start="105" selection-end="105" vertical-scroll-proportion="0.13204226">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/create.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="31" selection-start="651" selection-end="651" vertical-scroll-proportion="-16.25">
@@ -588,23 +588,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/public/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="105" selection-end="105" vertical-scroll-proportion="-3.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/delete.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="71" selection-end="543" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/traceroutes/delete.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="111" selection-start="506" selection-end="506" vertical-scroll-proportion="0.33771107">
+        <state line="4" column="53" selection-start="164" selection-end="164" vertical-scroll-proportion="0.1056338">
           <folding />
         </state>
       </provider>
