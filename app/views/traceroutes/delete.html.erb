@@ -1,2 +1,6 @@
-<h1>Traceroutes#delete</h1>
-<p>Find me in app/views/traceroutes/delete.html.erb</p>
+<div>
+	<h2>Delete Traceroute</h2>
+	<%= form_for(:traceroute, :url => {:action => 'destroy', :id => @traceroute.id}) do |f| %>
+	<%= submit_tag("Delete Traceroute") %>
+	<% end %>
+</div>

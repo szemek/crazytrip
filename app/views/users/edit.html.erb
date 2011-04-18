@@ -1,2 +1,48 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<div>
+	<h2>Edit User</h2>
+	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+		<% if @user.errors.any? %>
+			<h3>Form is invalid</h3>
+			<ul><% for message in @user.errors.full_messages %>
+				<li><%= message %></li>
+			<% end %></ul>
+		<% end %>
+		<table>
+			<tr>
+				<th>First name</th>
+				<td><%= f.text_field(:first_name) %></td>
+			</tr>
+			<tr>
+				<th>Last name</th>
+				<td><%= f.text_field(:last_name) %></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><%= f.text_field(:email) %></td>
+			</tr>
+		   <tr>
+		     <th>Password</th>
+		     <td><%= f.password_field(:password) %></td>
+		   </tr>
+		   <tr>
+		     <th>Password Confirmation</th>
+		     <td><%= f.password_field(:password_confirmation) %></td>
+		   </tr>
+				<th>Owned traceroutes</th>
+				<td>
+					<ul><% @user.traceroutes.each do |t| %>
+						<li><%= t.name %>
+					<% end %></ul>
+				</td>
+			</tr>
+				<th>Attended trips</th>
+				<td>
+					<ul><% @user.trips.each do |t| %>
+						<li><%= t.name %>
+					<% end %></ul>
+				</td>
+			</tr>      
+		</table>
+	<%= submit_tag("Update User") %>
+	<% end %>
+</div>

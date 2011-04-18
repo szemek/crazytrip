@@ -1,69 +1,12 @@
 Crazytrip::Application.routes.draw do
-  get "traceroutes/index"
-
-  get "traceroutes/show"
-
-  get "traceroutes/new"
-
-  get "traceroutes/create"
-
-  get "traceroutes/edit"
-
-  get "traceroutes/update"
-
-  get "traceroutes/delete"
-
-  get "traceroutes/destroy"
-
-  get "users/index"
-
-  get "users/show"
-
-  get "users/new"
-
-  get "users/create"
-
-  get "users/edit"
-
-  get "users/update"
-
-  get "users/delete"
-
-  get "users/destroy"
-
-  get "traceroute/index"
-
-  get "traceroute/show"
-
-  get "traceroute/new"
-
-  get "traceroute/create"
-
-  get "traceroute/edit"
-
-  get "traceroute/update"
-
-  get "traceroute/delete"
-
-  get "traceroute/destroy"
-
-  get "user/index"
-
-  get "user/show"
-
-  get "user/new"
-
-  get "user/create"
-
-  get "user/edit"
-
-  get "user/update"
-
-  get "user/delete"
-
-  get "user/destroy"
-
-  root :to => "public#index"
+	get "log_out" => "sessions#destroy", :as => "log_out"
+	get "log_in" => "sessions#new", :as => "log_in"
+	get "sign_up" => "users#new", :as => "sign_up"
+	resources :users
+	resources :sessions
+	resources :traceroutes
+	root :to => "users#new"
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

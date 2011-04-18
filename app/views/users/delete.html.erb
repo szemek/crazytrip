@@ -1,2 +1,6 @@
-<h1>User#delete</h1>
-<p>Find me in app/views/user/delete.html.erb</p>
+<div>
+	<h2>Delete User</h2>
+	<%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| %>
+	<%= submit_tag("Delete User") %>
+	<% end %>
+</div>

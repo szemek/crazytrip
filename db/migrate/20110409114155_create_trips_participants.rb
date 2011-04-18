@@ -1,4 +1,4 @@
-class CreateTraceroutesUsers < ActiveRecord::Migration
+class CreateTripsParticipants < ActiveRecord::Migration
   def self.up
     create_table :traceroutes_users, :id => false do |t|
       t.references :traceroute

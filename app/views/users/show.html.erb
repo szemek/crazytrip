@@ -1,2 +1,58 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div>
+	<h2>Show User</h2>
+	<table>
+		<tr>
+			<th>Id</th>
+			<td><%= @user.id %></td>
+		</tr>
+		<tr>
+			<th>First name</th>
+			<td><%= @user.first_name %></td>
+		</tr>
+		<tr>
+			<th>Last name</th>
+			<td><%= @user.last_name %></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<th>Password hash</th>
+			<td><%= @user.password_hash %></td>
+		</tr>      
+		<tr>
+			<th>Password salt</th>
+			<td><%= @user.password_salt %></td>
+		</tr>
+		<tr>
+			<th>Created at</th>
+			<td><%= @user.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated at</th>
+			<td><%= @user.updated_at %></td>
+		</tr>
+			<th>Owned traceroutes</th>
+			<td>
+				<ul><% @user.traceroutes.each do |t| %>
+					<li><%= t.name %>
+				<% end %></ul>
+			</td>
+		<tr>
+		</tr>
+			<th>Attended trips</th>
+			<td>
+				<ul><% @user.trips.each do |t| %>
+					<li><%= t.name %>
+				<% end %></ul>
+			</td>
+		</tr>      
+	</table>
+	<ul>
+		<li><%= link_to "Edit", {:action => 'edit', :id => @user.id} %>
+		<li><%= link_to "Delete", {:action => 'delete', :id => @user.id} %>
+		<li><%= link_to "Add traceroutes", {:controller => 'traceroutes', :action => 'new', :user_id => @user.id} %>
+		<li> Attend trip
+	</ul>
+</div>

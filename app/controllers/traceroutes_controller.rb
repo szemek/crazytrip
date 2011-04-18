@@ -8,7 +8,8 @@ class TraceroutesController < ApplicationController
   end
 
   def new
-    @traceroute = Traceroute.new
+    @traceroute = Traceroute.new()
+    @traceroute.user=User.find(params[:user_id])
   end
 
   def create
