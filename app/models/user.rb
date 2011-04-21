@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 	has_many :trips
 	has_many :voted_trips, :through => :votes,  :class_name => "Trip"
 	has_many :votes
-	has_many :points
+	has_many :places
 	
 	def encrypt_password
 		if password.present?

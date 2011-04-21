@@ -3,7 +3,6 @@ class CreatePoints < ActiveRecord::Migration
     create_table :points do |t|
       t.decimal "x"
       t.decimal "y"
-      t.references :user
       t.timestamps
     end
     add_index :points, ["user_id"]

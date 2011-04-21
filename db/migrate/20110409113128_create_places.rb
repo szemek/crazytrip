@@ -4,7 +4,9 @@ class CreatePlaces < ActiveRecord::Migration
       t.string "name"
       t.text "description"
       t.integer "minutes"
+      t.boolean "public_request", :default=>false
       t.references :point
+      t.references :user
       t.timestamps
     end
     add_index :places, ["point_id"]
