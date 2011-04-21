@@ -1,13 +1,13 @@
 class CreateTripsParticipants < ActiveRecord::Migration
   def self.up
-    create_table :traceroutes_users, :id => false do |t|
-      t.references :traceroute
+    create_table :trips_users, :id => false do |t|
+      t.references :trip
       t.references :user
     end
-    add_index :traceroutes_users, ["traceroute_id","user_id"]
+    add_index :trips_users, ["trip_id","user_id"]
   end
 
   def self.down
-    drop_table :traceroutes_users
+    drop_table :trips_users
   end
 end

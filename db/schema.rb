@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20110409125343) do
 
   add_index "points", ["user_id"], :name => "index_points_on_user_id"
 
-  create_table "traceroute_points", :force => true do |t|
-    t.integer  "traceroute_id"
+  create_table "trip_points", :force => true do |t|
+    t.integer  "trip_id"
     t.integer  "point_id"
     t.datetime "date"
     t.integer  "order"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(:version => 20110409125343) do
     t.datetime "updated_at"
   end
 
-  add_index "traceroute_points", ["traceroute_id", "point_id"], :name => "index_traceroute_points_on_traceroute_id_and_point_id"
+  add_index "trip_points", ["trip_id", "point_id"], :name => "index_trip_points_on_trip_id_and_point_id"
 
-  create_table "traceroutes", :force => true do |t|
+  create_table "trips", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
@@ -84,14 +84,14 @@ ActiveRecord::Schema.define(:version => 20110409125343) do
     t.datetime "updated_at"
   end
 
-  add_index "traceroutes", ["user_id"], :name => "index_traceroutes_on_user_id"
+  add_index "trips", ["user_id"], :name => "index_trips_on_user_id"
 
-  create_table "traceroutes_users", :id => false, :force => true do |t|
-    t.integer "traceroute_id"
+  create_table "trips_users", :id => false, :force => true do |t|
+    t.integer "trip_id"
     t.integer "user_id"
   end
 
-  add_index "traceroutes_users", ["traceroute_id", "user_id"], :name => "index_traceroutes_users_on_traceroute_id_and_user_id"
+  add_index "trips_users", ["trip_id", "user_id"], :name => "index_trips_users_on_trip_id_and_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

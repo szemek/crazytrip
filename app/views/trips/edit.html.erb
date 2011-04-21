@@ -1,9 +1,9 @@
 <div>
-	<h2>Edit Traceroute</h2>
-	<%= form_for(:traceroute, :url => {:action => 'update', :id => @traceroute.id}) do |f| %>
-		<% if @traceroute.errors.any? %>
+	<h2>Edit Trip</h2>
+	<%= form_for(:trip, :url => {:action => 'update', :id => @trip.id}) do |f| %>
+		<% if @trip.errors.any? %>
 			<h3>Form is invalid</h3>
-			<ul><% for message in @traceroute.errors.full_messages %>
+			<ul><% for message in @trip.errors.full_messages %>
 				<li><%= message %></li>
 			<% end %></ul>
 		<% end %>
@@ -21,6 +21,6 @@
 				<td><%= f.text_field(:user_id) %></td>
 			</tr>
 		</table>
-	<%= submit_tag("Update Traceroute") %>
+	<%= submit_tag("Update Trip") %>
 	<% end %>
 </div>

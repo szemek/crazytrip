@@ -1,0 +1,31 @@
+<h1>Trips#index</h1>
+<p>Find me in app/views/trips/index.html.erb</p>
+
+
+
+<div class="trip list">
+  <h2>Trips</h2>
+
+  <%= link_to("Add New Trip", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Trip list">
+    <tr class="header">
+      <th>Id</th>
+      <th>Trip</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= trip.name %></td>
+      <td><%= trip.description %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => trip.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => trip.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => trip.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

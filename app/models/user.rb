@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :email
 	validates_presence_of :first_name
 	validates_presence_of :last_name
-	has_many :traceroutes
-	has_and_belongs_to_many :trips, :class_name => "Traceroute"
+	has_many :trips
+	has_and_belongs_to_many :trips
 	has_many :points
 	
 	def encrypt_password

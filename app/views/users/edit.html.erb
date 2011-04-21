@@ -28,9 +28,9 @@
 		     <th>Password Confirmation</th>
 		     <td><%= f.password_field(:password_confirmation) %></td>
 		   </tr>
-				<th>Owned traceroutes</th>
+				<th>Owned trips</th>
 				<td>
-					<ul><% @user.traceroutes.each do |t| %>
+					<ul><% @user.trips.each do |t| %>
 						<li><%= t.name %>
 					<% end %></ul>
 				</td>

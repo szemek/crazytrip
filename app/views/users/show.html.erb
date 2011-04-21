@@ -33,9 +33,9 @@
 			<th>Updated at</th>
 			<td><%= @user.updated_at %></td>
 		</tr>
-			<th>Owned traceroutes</th>
+			<th>Owned trips</th>
 			<td>
-				<ul><% @user.traceroutes.each do |t| %>
+				<ul><% @user.trips.each do |t| %>
 					<li><%= t.name %>
 				<% end %></ul>
 			</td>
@@ -52,7 +52,7 @@
 	<ul>
 		<li><%= link_to "Edit", {:action => 'edit', :id => @user.id} %>
 		<li><%= link_to "Delete", {:action => 'delete', :id => @user.id} %>
-		<li><%= link_to "Add traceroutes", {:controller => 'traceroutes', :action => 'new', :user_id => @user.id} %>
+		<li><%= link_to "Add trips", {:controller => 'trips', :action => 'new', :user_id => @user.id} %>
 		<li> Attend trip
 	</ul>
 </div>

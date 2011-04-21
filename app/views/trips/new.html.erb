@@ -1,14 +1,14 @@
-<h1>Traceroutes#new</h1>
-<p>Find me in app/views/traceroutes/new.html.erb</p>
+<h1>Trips#new</h1>
+<p>Find me in app/views/trips/new.html.erb</p>
 
 
 
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
-<div class="traceroute new">
-  <h2>Create Traceroute</h2>
-  <%= form_for(@traceroute, :url => {:action => 'create'}) do |f| %>
-    <table summary="Traceroute form fields">
+<div class="trip new">
+  <h2>Create Trip</h2>
+  <%= form_for(@trip, :url => {:action => 'create'}) do |f| %>
+    <table summary="Trip form fields">
        <tr>
         <th>Owner</th>
         <td><%= f.text_field(:user_id) %></td>
@@ -24,7 +24,7 @@
     </table>
 
     <div class="form-buttons">
-      <%= submit_tag("Create Traceroute") %>
+      <%= submit_tag("Create Trip") %>
     </div>
 
   <% end %>
