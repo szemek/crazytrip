@@ -2,6 +2,7 @@ class CreateTrips < ActiveRecord::Migration
   def self.up
     create_table :trips do |t|
       t.string "name"
+      t.boolean "public", :default=>false
       t.text "description"
       t.references :user
       t.timestamps
