@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.6'
-gem 'mysql2', '0.2.7', :group => :development
+gem 'mysql2', '0.2.7'
+gem 'sqlite3', '1.3.3'
 gem 'bcrypt-ruby', '2.1.4', :require => "bcrypt"
 
 
