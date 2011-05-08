@@ -5,7 +5,6 @@ class CreatePoints < ActiveRecord::Migration
       t.decimal "y"
       t.timestamps
     end
-    add_index :points, ["user_id"]
   end
 
   def self.down
