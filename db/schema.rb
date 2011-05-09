@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110421093629) do
+ActiveRecord::Schema.define(:version => 20110508084813) do
 
   create_table "media", :force => true do |t|
     t.binary   "data"
@@ -48,7 +48,9 @@ ActiveRecord::Schema.define(:version => 20110421093629) do
     t.string   "name"
     t.text     "description"
     t.integer  "minutes"
+    t.boolean  "public_request", :default => false
     t.integer  "point_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,14 +58,11 @@ ActiveRecord::Schema.define(:version => 20110421093629) do
   add_index "places", ["point_id"], :name => "index_places_on_point_id"
 
   create_table "points", :force => true do |t|
-    t.decimal  "x",          :precision => 10, :scale => 0
-    t.decimal  "y",          :precision => 10, :scale => 0
-    t.integer  "user_id"
+    t.decimal  "x",          :precision => 15, :scale => 10
+    t.decimal  "y",          :precision => 15, :scale => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "points", ["user_id"], :name => "index_points_on_user_id"
 
   create_table "trip_points", :force => true do |t|
     t.integer  "trip_id"
@@ -100,15 +99,11 @@ ActiveRecord::Schema.define(:version => 20110421093629) do
   add_index "users", ["email"], :name => "index_users_on_email"
 
   create_table "votes", :force => true do |t|
-    t.integer  "trip_id"
-    t.integer  "user_id"
-    t.integer  "rating"
     t.string   "comment"
-    t.boolean  "favorite",   :default => false
+    t.integer  "rating"
+    t.boolean  "favorite"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "votes", ["trip_id", "user_id"], :name => "index_votes_on_trip_id_and_user_id"
 
 end
