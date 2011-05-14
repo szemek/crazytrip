@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = "#{@user.first_name} #{@user.last_name}"
+    @list=@user.trips.where(:public=>true).paginate(:page => params[:page])
   end
     
   def new
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Crazytrip!"
-      redirect_to @user
+      redirect_to root_path
     else
       @title = "Sign up"
       @user.password = nil

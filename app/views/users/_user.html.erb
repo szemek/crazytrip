@@ -1,8 +1,14 @@
 <li>
   <%= link_to "#{user.first_name} #{user.last_name}", user %>
+  <% if current_user.admin %>
   | <%= link_to "delete", user,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{user.first_name} #{user.last_name}" %>
   | <%= link_to "edit", edit_user_path(user) %>
+  <% else %>
+  <% if !@search && !@list %>
+  - user
+  <% end %>
+  <% end %>
 </li>
 

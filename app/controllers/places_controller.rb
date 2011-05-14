@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
 
   before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :correct_show_user, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update, :destroy]
 	
   def index
@@ -16,6 +17,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @title = @place.name
+    @list=@place.point.trips.paginate(:page => params[:page])
   end
     
   def new
@@ -29,7 +31,11 @@ class PlacesController < ApplicationController
     @point.save
     params[:place][:point]=@point
     @place = Place.new(params[:place])
-    @place.user=current_user
+    if !current_user.admin?
+    	@place = current_user.places.build(params[:place])
+    else
+    	@place = Place.new(params[:place])
+    end
     if @place.save
       flash[:success] = "Place added."
       redirect_to @place
@@ -62,7 +68,7 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-    place.find(params[:id]).destroy
+    Place.find(params[:id]).destroy
     flash[:success] = "Place destroyed."
     redirect_to places_path
   end
@@ -73,5 +79,10 @@ class PlacesController < ApplicationController
       @user = Place.find(params[:id]).user
       redirect_to(root_path) unless current_user==@user || current_user.admin?
     end
+    
+    def correct_show_user
+    	@place = Place.find(params[:id])
+    	redirect_to(root_path) unless @place.user==nil || current_user==@place.user || current_user.admin?
+  end
 
 end

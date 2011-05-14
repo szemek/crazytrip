@@ -12,22 +12,22 @@
 </div>
 <%= f.fields_for @point do |point_form| %>
 <div class="field">
-  <%= point_form.label :x %>
+  <%= point_form.label :longitude %>
 </div>
 <div class="field">
   <%= point_form.text_field :x %>
 </div>
 <div class="field">
-  <%= point_form.label :y %>
+  <%= point_form.label :latitude %>
 </div>
 <div class="field">
   <%= point_form.text_field :y %>
 </div>
 <% end %>
 <div class="field">
-  <%= f.label :minutes %>
+  <%= f.label "Approximate visit time" %>
 </div>
 <div class="field">
-  <%= f.text_field :minutes %>
+  <%= f.text_field :minutes %> minutes
 </div>
 

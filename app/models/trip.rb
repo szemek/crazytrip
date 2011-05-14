@@ -25,10 +25,16 @@ class Trip < ActiveRecord::Base
 
 def self.search(search)
   if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    where(:public=>true).find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
   else
     find(:all)
   end
+end
+
+def places
+	points.each do |point|
+		Places.where(:point_id=>point.id)
+	end
 end
 
 end

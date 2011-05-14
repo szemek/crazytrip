@@ -1,0 +1,14 @@
+<% if @trip.public %>
+<p>Author <%= link_to "#{@trip.user.first_name} #{@trip.user.last_name}", user_path(@trip.user) %></p>
+<% end %>
+<p><%= @trip.description %></p>
+
+<% if @list.count!=0 %>
+<h3>Trip's points</h3>
+<%end%>
+<%= will_paginate @list%>
+<ul class="list">
+  <%= render @list %>
+</ul>
+
+<%= will_paginate @list %>

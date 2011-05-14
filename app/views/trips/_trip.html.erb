@@ -1,8 +1,14 @@
 <li>
   <%= link_to trip.name, trip %>
+  <% if !@search && !@list %>
   | <%= link_to "delete", trip,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{trip.name}" %>
   | <%= link_to "edit", edit_trip_path(trip) %>
+  <% else %>
+ 	<% if !@search && !@list %>
+  - trip
+  <% end %>
+  <% end %>
 </li>
 
