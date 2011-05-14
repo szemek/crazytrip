@@ -8,8 +8,8 @@ class CreatePlaces < ActiveRecord::Migration
       t.references :user
       t.timestamps
     end
-    add_index :places, [:user]
-    add_index :places, [:point]
+    add_index :places, [:user_id]
+    add_index :places, [:point_id]
   end
 
   def self.down
