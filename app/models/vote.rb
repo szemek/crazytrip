@@ -1,3 +1,18 @@
+# == Schema Information
+# Schema version: 20110508231655
+#
+# Table name: votes
+#
+#  id         :integer         not null, primary key
+#  trip_id    :integer
+#  user_id    :integer
+#  rating     :integer
+#  comment    :string(255)
+#  favorite   :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Vote < ActiveRecord::Base
   validates_inclusion_of :rating, :in => 1..10
   validates_presence_of :rating

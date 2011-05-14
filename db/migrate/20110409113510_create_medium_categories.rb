@@ -1,10 +1,10 @@
 class CreateMediumCategories < ActiveRecord::Migration
   def self.up
     create_table :medium_categories do |t|
-      t.string "name"
+      t.string :name
       t.timestamps
     end
-    add_index :medium_categories, ["name"]
+    add_index :medium_categories, [:name]
   end
 
   def self.down

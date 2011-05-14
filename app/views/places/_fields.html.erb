@@ -1,0 +1,33 @@
+<div class="field">
+  <%= f.label :name %>
+</div>
+<div class="field">
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :description %>
+</div>
+<div class="field">
+  <%= f.text_area :description %>
+</div>
+<%= f.fields_for @point do |point_form| %>
+<div class="field">
+  <%= point_form.label :x %>
+</div>
+<div class="field">
+  <%= point_form.text_field :x %>
+</div>
+<div class="field">
+  <%= point_form.label :y %>
+</div>
+<div class="field">
+  <%= point_form.text_field :y %>
+</div>
+<% end %>
+<div class="field">
+  <%= f.label :minutes %>
+</div>
+<div class="field">
+  <%= f.text_field :minutes %>
+</div>
+

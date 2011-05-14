@@ -5,7 +5,7 @@ class CreateMedia < ActiveRecord::Migration
       t.references :medium_category
       t.timestamps
     end
-    add_index :media, ["medium_category_id"]
+    add_index :media, [:medium_category_id]
   end
 
   def self.down

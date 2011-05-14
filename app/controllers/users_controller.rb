@@ -1,45 +1,73 @@
 class UsersController < ApplicationController
+
+  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :admin_user,   :only => [:index, :destroy]
+  before_filter :new_user,   :only => [:new, :create]	
+	
   def index
-    @users = User.all
+    @title = "All users"
+    @users = User.paginate(:page => params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    @title = "#{@user.first_name} #{@user.last_name}"
   end
-
+    
   def new
     @user = User.new
+    @title = "Sign up"
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to(:action => 'index', :notice => "Signed up!")
+      sign_in @user
+      flash[:success] = "Welcome to Crazytrip!"
+      redirect_to @user
     else
-      render('new')
+      @title = "Sign up"
+      @user.password = nil
+      @user.password_confirmation = nil
+      flash.now[:error] = error_message [@user]
+      render 'new'
     end
   end
 
   def edit
-    @user = User.find(params[:id])
+    @title = "Edit user settings"
   end
-
+    
   def update
-    @user = User.find(params[:id])
+  	if params[:user][:password]=="" && params[:user][:password_confirmation]==""
+  		params[:user].delete(:password)
+  		params[:user].delete(:password_confirmation)
+  	end
     if @user.update_attributes(params[:user])
-      redirect_to(:action => 'show', :id => @user.id)
+      flash[:success] = "Profile updated."
+      redirect_to @user
     else
-      render('edit')
+      @title = "Edit user"
+      @user.password = nil
+      @user.password_confirmation = nil
+      flash.now[:error] = error_message [@user]
+      render 'edit'
     end
   end
 
-  def delete
-    @user = User.find(params[:id])
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_path
   end
 
-  def destroy
-    @user = User.find(params[:id]).destroy
-    redirect_to(:action => 'index')
+	private
+	
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user==@user
   end
 
 end
+

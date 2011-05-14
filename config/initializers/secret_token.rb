@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Crazytrip::Application.config.secret_token = '216b55f16fa27442db77ddf9db508370c05f5f4ca9032bf3c88075c1b420d830da90d9b709028eb3da3d46fe82a18c3cb5593186fcf14cf341cd3174e2522b93'
+Crazytrip2::Application.config.secret_token = 'bfb4302406f443f5cdc6f2e891afecd770fa353929f89de0c1fabdba75b284c29c34acf6fb97fc93ee530f249cfc273f38658268c8afc8fd93c13931a761a98a'

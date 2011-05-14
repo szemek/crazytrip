@@ -4,7 +4,7 @@ class CreatePlaceCategoriesPlaces < ActiveRecord::Migration
       t.references :place
       t.references :place_category
     end
-    add_index :place_categories_places, ["place_category_id","place_id"]
+    add_index :place_categories_places, [:place_category_id, :place_id]
   end
 
   def self.down

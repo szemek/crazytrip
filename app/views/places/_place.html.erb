@@ -1,0 +1,8 @@
+<li>
+  <%= link_to place.name, place %>
+  | <%= link_to "delete", place,	:method => :delete,
+  															:confirm => "You sure?",
+  															:title => "Delete #{place.name}" %>
+	| <%= link_to "edit", edit_place_path(place) %>
+</li>
+

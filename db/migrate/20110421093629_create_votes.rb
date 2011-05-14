@@ -3,12 +3,12 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
 		t.references :trip
 		t.references :user
-		t.integer "rating"
-		t.string "comment"
-		t.boolean "favorite", :default=>false
+		t.integer  :rating 
+		t.string  :comment 
+		t.boolean  :favorite , :default=>false
     t.timestamps
     end
-    add_index :votes, ["trip_id","user_id"]
+    add_index :votes, [ :trip_id , :user_id ]
   end
 
   def self.down

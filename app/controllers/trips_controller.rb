@@ -1,45 +1,67 @@
 class TripsController < ApplicationController
+
+  before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :correct_user, :only => [:edit, :update]
+	
   def index
-    @trips = Trip.all
+    if current_user.admin?
+    @title = "All trips"
+    @trips = Trip.paginate(:page => params[:page])
+    else
+    	@title = "Your trips"
+    	@trips = Place.where(:user_id=>current_user.id).paginate(:page => params[:page])
+    end
   end
 
   def show
     @trip = Trip.find(params[:id])
+    @title = @trip.name
   end
-
+    
   def new
-    @trip = Trip.new()
+    @trip = Trip.new
+    @title = "Add new trip"
   end
 
   def create
-    @trip = Trip.new(params[:trip])
+    @trip = current_user.trips.build(params[:trip])
     if @trip.save
-      redirect_to(:action => 'index')
+      sign_in @trip
+      flash[:success] = "Trip added"
+      redirect_to @trip
     else
-      render('new')
+      @title = "Add new trip"
+      flash.now[:error] = error_message [@trip]
+      render 'new'
     end
   end
 
   def edit
-    @trip = Trip.find(params[:id])
+    @title = "Edit trip"
   end
-
+    
   def update
-    @trip = Trip.find(params[:id])
     if @trip.update_attributes(params[:trip])
-      redirect_to(:action => 'show', :id => @trip.id)
+      flash[:success] = "Trip updated."
+      redirect_to @trip
     else
-      render('edit')
+      @title = "Edit trip"
+      flash.now[:error] = error_message [@trip]
+      render 'edit'
     end
   end
 
-  def delete
-    @trip = Trip.find(params[:id])
-  end
-
   def destroy
-    @trip = Trip.find(params[:id]).destroy
-    redirect_to(:action => 'index')
+    Trip.find(params[:id]).destroy
+    flash[:success] = "Trip destroyed."
+    redirect_to trips_path
+  end
+  
+  private
+	
+  def correct_user
+    @trip = Trip.find(params[:id])
+    redirect_to(root_path) unless current_user==@trip.user
   end
 
 end
