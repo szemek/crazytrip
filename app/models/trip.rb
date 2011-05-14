@@ -14,14 +14,15 @@
 
 class Trip < ActiveRecord::Base
 
-	attr_accessible :name, :description, :public
-	validates :name, :presence => true
-	
-	has_many :trip_points
-	has_many :points, :through=> :trip_points
-	has_many :votes
-	has_many :voters, :through => :votes,  :class_name => "User"
-	belongs_to :user
+  attr_accessible :name, :description, :public
+  validates :name, :presence => true
+
+  has_many :trip_points
+  accepts_nested_attributes_for :trip_points, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+  has_many :points, :through=> :trip_points
+  has_many :votes
+  has_many :voters, :through => :votes,  :class_name => "User"
+  belongs_to :user
 
 def self.search(search)
   if search
