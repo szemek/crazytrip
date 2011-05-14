@@ -29,7 +29,7 @@ class Place < ActiveRecord::Base
   
   def self.search(search)
   if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    where(:user_id=>nil).find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
   else
     find(:all)
   end

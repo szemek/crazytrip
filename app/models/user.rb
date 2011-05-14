@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
 
  	has_many :trips, :dependent => :destroy
 	has_many :places
+	has_many :trip_points
 	has_many :voted_trips, :through => :votes,  :class_name => "Trip"
 	has_many :votes  
   

@@ -1,2 +1,14 @@
 <p><%= @place.description %></p>
+<p>Longitude <%= @place.point.x %>, Latitude <%= @place.point.y %></p>
+<p>Approximate visit time <%= @place.minutes %> minutes</p>
+
+<% if @list.count!=0 %>
+<h3>Trips with this point</h3>
+<%end%>
+<%= will_paginate @list%>
+<ul class="list">
+  <%= render @list %>
+</ul>
+
+<%= will_paginate @list %>
 

@@ -64,8 +64,6 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.datetime "updated_at"
   end
 
-  add_index "points", ["x", "y"], :name => "index_points_on_x_and_y"
-
   create_table "trip_points", :force => true do |t|
     t.integer  "trip_id"
     t.integer  "point_id"

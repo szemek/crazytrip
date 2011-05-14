@@ -1,8 +1,14 @@
 <li>
   <%= link_to place.name, place %>
+  <% if !@search && !@list %>
   | <%= link_to "delete", place,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{place.name}" %>
 	| <%= link_to "edit", edit_place_path(place) %>
+	<% else %>
+	<% if !@search %>
+  - place
+  <% end %>
+  <% end %>
 </li>
 

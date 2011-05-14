@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
 
   before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :correct_show_user, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update]
 	
   def index
@@ -9,13 +10,14 @@ class TripsController < ApplicationController
     @trips = Trip.paginate(:page => params[:page])
     else
     	@title = "Your trips"
-    	@trips = Place.where(:user_id=>current_user.id).paginate(:page => params[:page])
+    	@trips = Trip.where(:user_id=>current_user.id).paginate(:page => params[:page])
     end
   end
 
   def show
     @trip = Trip.find(params[:id])
     @title = @trip.name
+    @list=@trip.places.paginate(:page => params[:page])
   end
     
   def new
@@ -24,9 +26,12 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = current_user.trips.build(params[:trip])
+    if !current_user.admin?
+    	@trip = current_user.trips.build(params[:trip])
+    else
+        @trip = Trip.new(params[:place])
+    end
     if @trip.save
-      sign_in @trip
       flash[:success] = "Trip added"
       redirect_to @trip
     else
@@ -64,4 +69,8 @@ class TripsController < ApplicationController
     redirect_to(root_path) unless current_user==@trip.user
   end
 
+  def correct_show_user
+    @trip = Trip.find(params[:id])
+    redirect_to(root_path) unless @trip.public || current_user==@trip.user || current_user.admin?
+  end
 end
