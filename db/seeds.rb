@@ -9,8 +9,8 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 point = Point.new
-point.x = 50.0546989441
-point.y = 19.9102993011
+point.y = 50.0546989441
+point.x = 19.9102993011
 point.save
 place = Place.new
 place.point_id = point.id
@@ -20,8 +20,8 @@ place.description = 'Urządzenie mieszkania należącego na początku XX w. do m
 place.save
 
 point = Point.new
-point.x = 50.0476989746
-point.y = 19.9437999725
+point.y = 50.0476989746
+point.x = 19.9437999725
 point.save
 place = Place.new
 place.point_id = point.id
@@ -31,8 +31,8 @@ place.description = 'Gotycki dom ulokowany przy ulicy Krakowskiej na Kazimierzu,
 place.save
 
 point = Point.new
-point.x = 50.047000885
-point.y = 19.9440002441
+point.y = 50.047000885
+point.x = 19.9440002441
 point.save
 place = Place.new
 place.point_id = point.id
@@ -42,8 +42,8 @@ place.description = 'Fasada kościoła, autorstwa osiadłego w Polsce rzymskiego
 place.save
 
 point = Point.new
-point.x = 50.0494003296
-point.y = 19.9445991516
+point.y = 50.0494003296
+point.x = 19.9445991516
 point.save
 place = Place.new
 place.point_id = point.id
@@ -53,8 +53,8 @@ place.description = 'Kościół ten ufundowany został jako fara - kościół pa
 place.save
 
 point = Point.new
-point.x = 50.0491981506
-point.y = 19.9409999847
+point.y = 50.0491981506
+point.x = 19.9409999847
 point.save
 place = Place.new
 place.point_id = point.id
@@ -64,8 +64,8 @@ place.description = 'Kościół powstał z fundacji króla Kazimierza Wielkiego.
 place.save
 
 point = Point.new
-point.x = 50.0486984253
-point.y = 19.9440002441
+point.y = 50.0486984253
+point.x = 19.9440002441
 point.save
 place = Place.new
 place.point_id = point.id
@@ -75,8 +75,8 @@ place.description = 'Dzisiejszy plac Wolnica jest częścią dawnego rynku miast
 place.save
 
 point = Point.new
-point.x = 50.0481987
-point.y = 19.9433002472
+point.y = 50.0481987
+point.x = 19.9433002472
 point.save
 place = Place.new
 place.point_id = point.id
@@ -86,8 +86,8 @@ place.description = 'Ulica ta była od zawsze główną osią urbanistyczną mia
 place.save
 
 point = Point.new
-point.x = 50.0523986816
-point.y = 19.9365005493
+point.y = 50.0523986816
+point.x = 19.9365005493
 point.save
 place = Place.new
 place.point_id = point.id
@@ -97,8 +97,8 @@ place.description = 'Stradom, średniowieczną osadę leżącą u stóp Wawelu, 
 place.save
 
 point = Point.new
-point.x = 50.052898407
-point.y = 19.9444999695
+point.y = 50.052898407
+point.x = 19.9444999695
 point.save
 place = Place.new
 place.point_id = point.id
@@ -108,8 +108,8 @@ place.description = 'Specyfiką postępowego programu synagogi Tempel były wyg�
 place.save
 
 point = Point.new
-point.x = 50.0522994995
-point.y = 19.9484004974
+point.y = 50.0522994995
+point.x = 19.9484004974
 point.save
 place = Place.new
 place.point_id = point.id
@@ -119,8 +119,8 @@ place.description = 'Ufundowana w 1620 r. przez Wolfa Poppera, potentata finanso
 place.save
 
 point = Point.new
-point.x = 50.0526008606
-point.y = 19.947599411
+point.y = 50.0526008606
+point.x = 19.947599411
 point.save
 place = Place.new
 place.point_id = point.id
@@ -130,8 +130,8 @@ place.description = 'Synagoga ufundowana dla Mojżesza Isserlesa, zwanego Remuh,
 place.save
 
 point = Point.new
-point.x = 50.051399231
-point.y = 19.9486999512
+point.y = 50.051399231
+point.x = 19.9486999512
 point.save
 place = Place.new
 place.point_id = point.id
@@ -141,8 +141,8 @@ place.description = 'Najstarsza krakowska synagoga powstała prawdopodobnie wkr�
 place.save
 
 point = Point.new
-point.x = 50.051700592
-point.y = 19.9461994171
+point.y = 50.051700592
+point.x = 19.9461994171
 point.save
 place = Place.new
 place.point_id = point.id
@@ -152,8 +152,8 @@ place.description = 'Zbudowana w latach 1638-1644 z fundacji Izaaka (Ajzyka) Jak
 place.save
 
 point = Point.new
-point.x = 50.0516014099
-point.y = 19.9449996948
+point.y = 50.0516014099
+point.x = 19.9449996948
 point.save
 place = Place.new
 place.point_id = point.id
@@ -163,8 +163,8 @@ place.description = 'Okolice te zajęli po roku 1500 Żydzi wypędzeni z Czech. 
 place.save
 
 point = Point.new
-point.x = 50.0540008545
-point.y = 19.9351997375
+point.y = 50.0540008545
+point.x = 19.9351997375
 point.save
 place = Place.new
 place.point_id = point.id
@@ -174,8 +174,8 @@ place.description = 'Wg niektórych językoznawców słowo wąwel miało oznacza
 place.save
 
 point = Point.new
-point.x = 50.0653991699
-point.y = 19.9416007996
+point.y = 50.0653991699
+point.x = 19.9416007996
 point.save
 place = Place.new
 place.point_id = point.id
@@ -185,8 +185,8 @@ place.description = 'Perła krakowskich fortyfikacji – gotycki barbakan, zwany
 place.save
 
 point = Point.new
-point.x = 50.0647010803
-point.y = 19.941400528
+point.y = 50.0647010803
+point.x = 19.941400528
 point.save
 place = Place.new
 place.point_id = point.id
@@ -196,8 +196,8 @@ place.description = 'Bramę tą zwano także Porta Gloriae, czyli Bramą Chwały
 place.save
 
 point = Point.new
-point.x = 50.0505981445
-point.y = 19.9466991425
+point.y = 50.0505981445
+point.x = 19.9466991425
 point.save
 place = Place.new
 place.point_id = point.id
@@ -207,8 +207,8 @@ place.description = 'W roku 1335 król Kazimierz Wielki podpisał przywilej praw
 place.save
 
 point = Point.new
-point.x = 50.0588989258
-point.y = 19.9374008179
+point.y = 50.0588989258
+point.x = 19.9374008179
 point.save
 place = Place.new
 place.point_id = point.id
@@ -218,8 +218,8 @@ place.description = 'Plac ten zajmuje dziś przestrzeń pomiędzy kościołem oo
 place.save
 
 point = Point.new
-point.x = 50.0583992004
-point.y = 19.9370994568
+point.y = 50.0583992004
+point.x = 19.9370994568
 point.save
 place = Place.new
 place.point_id = point.id
@@ -229,8 +229,8 @@ place.description = 'Pałac wzniósł w pierwszej połowie XVI w. hetman Jan Tar
 place.save
 
 point = Point.new
-point.x = 50.0583992004
-point.y = 19.9375991821
+point.y = 50.0583992004
+point.x = 19.9375991821
 point.save
 place = Place.new
 place.point_id = point.id
@@ -240,8 +240,8 @@ place.description = 'Nowoczesne centrum konferencyjno-wystawiennicze, którego b
 place.save
 
 point = Point.new
-point.x = 50.0640983582
-point.y = 19.9428005219
+point.y = 50.0640983582
+point.x = 19.9428005219
 point.save
 place = Place.new
 place.point_id = point.id
@@ -251,8 +251,8 @@ place.description = 'Jak głosi napis na fasadzie teatralnego gmachu - oto wkła
 place.save
 
 point = Point.new
-point.x = 50.0614013672
-point.y = 19.9361991882
+point.y = 50.0614013672
+point.x = 19.9361991882
 point.save
 place = Place.new
 place.point_id = point.id
@@ -262,8 +262,8 @@ place.description = 'Wieża jest jedyną pozostałością po budynku dawnego kra
 place.save
 
 point = Point.new
-point.x = 50.0849990845
-point.y = 20.0293006897
+point.y = 50.0849990845
+point.x = 20.0293006897
 point.save
 place = Place.new
 place.point_id = point.id
@@ -273,8 +273,8 @@ place.description = 'Kościół Matki Bożej Królowej Polski, czyli Arkę Pana,
 place.save
 
 point = Point.new
-point.x = 50.0805015564
-point.y = 20.0338001251
+point.y = 50.0805015564
+point.x = 20.0338001251
 point.save
 place = Place.new
 place.point_id = point.id
@@ -284,8 +284,8 @@ place.description = 'Słynne było niegdyś powiedzenie, że Nowa Huta może poc
 place.save
 
 point = Point.new
-point.x = 50.0782012939
-point.y = 20.0303001404
+point.y = 50.0782012939
+point.x = 20.0303001404
 point.save
 place = Place.new
 place.point_id = point.id
@@ -295,8 +295,8 @@ place.description = 'Było to najpopularniejsze nowohuckie kino, które zainaugu
 place.save
 
 point = Point.new
-point.x = 50.0793991089
-point.y = 20.0352993011
+point.y = 50.0793991089
+point.x = 20.0352993011
 point.save
 place = Place.new
 place.point_id = point.id
@@ -306,8 +306,8 @@ place.description = 'Nowa Huta, jako pierwsze w Polsce idealne miasto socjalisty
 place.save
 
 point = Point.new
-point.x = 50.0732002258
-point.y = 20.0375995636
+point.y = 50.0732002258
+point.x = 20.0375995636
 point.save
 place = Place.new
 place.point_id = point.id
@@ -317,8 +317,8 @@ place.description = 'Reprezentacyjna aleja Nowej Huty miała łączyć plac Cent
 place.save
 
 point = Point.new
-point.x = 50.072101593
-point.y = 20.0373001099
+point.y = 50.072101593
+point.x = 20.0373001099
 point.save
 place = Place.new
 place.point_id = point.id
@@ -328,8 +328,8 @@ place.description = 'Do dziś jest głównym i najlepiej rozpoznawanym punktem N
 place.save
 
 point = Point.new
-point.x = 50.0652999878
-point.y = 20.0463008881
+point.y = 50.0652999878
+point.x = 20.0463008881
 point.save
 place = Place.new
 place.point_id = point.id
@@ -339,8 +339,8 @@ place.description = 'Powstał w 1954 roku jako szpital miejski. Podobnie jak Cen
 place.save
 
 point = Point.new
-point.x = 50.0647010803
-point.y = 20.0517997742
+point.y = 50.0647010803
+point.x = 20.0517997742
 point.save
 place = Place.new
 place.point_id = point.id
@@ -350,8 +350,8 @@ place.description = 'Choć wzniesiony w średniowieczu, epoce anonimowych twórc
 place.save
 
 point = Point.new
-point.x = 50.0644989014
-point.y = 20.0536003113
+point.y = 50.0644989014
+point.x = 20.0536003113
 point.save
 place = Place.new
 place.point_id = point.id
@@ -361,8 +361,8 @@ place.description = 'Mogilski kościół Najświętszej Marii Panny i św. Wacł
 place.save
 
 point = Point.new
-point.x = 50.0713005066
-point.y = 20.049200058
+point.y = 50.0713005066
+point.x = 20.049200058
 point.save
 place = Place.new
 place.point_id = point.id
@@ -372,8 +372,8 @@ place.description = 'Pierwsze nowohuckie osiedla z pierwszym, wciąż zamieszkan
 place.save
 
 point = Point.new
-point.x = 50.0817985535
-point.y = 20.0557003021
+point.y = 50.0817985535
+point.x = 20.0557003021
 point.save
 place = Place.new
 place.point_id = point.id
@@ -383,8 +383,8 @@ place.description = 'Niegdyś wieś, a dziś dzielnica Krakowa - Krzesławice - 
 place.save
 
 point = Point.new
-point.x = 50.0800018311
-point.y = 20.0669994354
+point.y = 50.0800018311
+point.x = 20.0669994354
 point.save
 place = Place.new
 place.point_id = point.id
@@ -394,8 +394,8 @@ place.description = 'Centrum Administracyjne dawnej Huty im. Lenina zalicza się
 place.save
 
 point = Point.new
-point.x = 50.0592002869
-point.y = 19.9391002655
+point.y = 50.0592002869
+point.x = 19.9391002655
 point.save
 place = Place.new
 place.point_id = point.id
@@ -405,8 +405,8 @@ place.description = 'Pierwsi dominikanie przybyli do Krakowa w 1222 roku z inicj
 place.save
 
 point = Point.new
-point.x = 50.0569000244
-point.y = 19.9388999939
+point.y = 50.0569000244
+point.x = 19.9388999939
 point.save
 place = Place.new
 place.point_id = point.id
@@ -416,8 +416,8 @@ place.description = 'Jezuici przybyli do Polski wkrótce po zakończeniu soboru 
 place.save
 
 point = Point.new
-point.x = 50.0621986389
-point.y = 19.9337005615
+point.y = 50.0621986389
+point.x = 19.9337005615
 point.save
 place = Place.new
 place.point_id = point.id
@@ -427,8 +427,8 @@ place.description = 'Dzięki fundacji profesorów krakowskiej Akademii i króla 
 place.save
 
 point = Point.new
-point.x = 50.0588989258
-point.y = 19.9361991882
+point.y = 50.0588989258
+point.x = 19.9361991882
 point.save
 place = Place.new
 place.point_id = point.id
@@ -438,8 +438,8 @@ place.description = 'Z zewnątrz surowa gotycka architektura, wewnątrz miękkie
 place.save
 
 point = Point.new
-point.x = 50.0595016479
-point.y = 19.9349994659
+point.y = 50.0595016479
+point.x = 19.9349994659
 point.save
 place = Place.new
 place.point_id = point.id
@@ -449,8 +449,8 @@ place.description = 'Pałac związany jest nierozłącznie z osobą metropolity 
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.935300827
+point.y = 50.0616989136
+point.x = 19.935300827
 point.save
 place = Place.new
 place.point_id = point.id
@@ -460,8 +460,8 @@ place.description = 'Dawniej domy dla odróżnienia, zamiast numerów, miały go
 place.save
 
 point = Point.new
-point.x = 50.0614013672
-point.y = 19.9391994476
+point.y = 50.0614013672
+point.x = 19.9391994476
 point.save
 place = Place.new
 place.point_id = point.id
@@ -471,8 +471,8 @@ place.description = 'Kiedyś cmentarz przy kościele parafialnym, dziś uroczy z
 place.save
 
 point = Point.new
-point.x = 50.0205001831
-point.y = 19.9375991821
+point.y = 50.0205001831
+point.x = 19.9375991821
 point.save
 place = Place.new
 place.point_id = point.id
@@ -482,8 +482,8 @@ place.description = 'Sanktuarium, największe na świecie centrum kultu chrystol
 place.save
 
 point = Point.new
-point.x = 50.0649986267
-point.y = 19.9412994385
+point.y = 50.0649986267
+point.x = 19.9412994385
 point.save
 place = Place.new
 place.point_id = point.id
@@ -493,8 +493,8 @@ place.description = 'Trzydziestu dziewięciu krakowskich baszt bronili m.in. sze
 place.save
 
 point = Point.new
-point.x = 50.0648994446
-point.y = 19.9410991669
+point.y = 50.0648994446
+point.x = 19.9410991669
 point.save
 place = Place.new
 place.point_id = point.id
@@ -504,8 +504,8 @@ place.description = 'Najstarsza z zachowanych, wzniesiona z wapiennego kamienia 
 place.save
 
 point = Point.new
-point.x = 50.0648994446
-point.y = 19.9417991638
+point.y = 50.0648994446
+point.x = 19.9417991638
 point.save
 place = Place.new
 place.point_id = point.id
@@ -515,8 +515,8 @@ place.description = 'Pasamonicy, zwani później szmuklerzami, wyrabiali niegdy�
 place.save
 
 point = Point.new
-point.x = 50.0649986267
-point.y = 19.9412002563
+point.y = 50.0649986267
+point.x = 19.9412002563
 point.save
 place = Place.new
 place.point_id = point.id
@@ -526,8 +526,8 @@ place.description = 'Późnogotycką basztę, wzniesioną na kwadratowej kamienn
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.9337997437
+point.y = 50.0616989136
+point.x = 19.9337997437
 point.save
 place = Place.new
 place.point_id = point.id
@@ -537,8 +537,8 @@ place.description = 'Uniwersytet Jagielloński, założony przez króla Kazimier
 place.save
 
 point = Point.new
-point.x = 50.0556983948
-point.y = 19.9365997314
+point.y = 50.0556983948
+point.x = 19.9365997314
 point.save
 place = Place.new
 place.point_id = point.id
@@ -548,8 +548,8 @@ place.description = 'To tutaj właśnie powstały liczne dzieła najznakomitszeg
 place.save
 
 point = Point.new
-point.x = 50.0559997559
-point.y = 19.9370994568
+point.y = 50.0559997559
+point.x = 19.9370994568
 point.save
 place = Place.new
 place.point_id = point.id
@@ -559,8 +559,8 @@ place.description = 'Dom przy ulicy Kanoniczej 21 to dawna rezydencja dziekanów
 place.save
 
 point = Point.new
-point.x = 50.0441017151
-point.y = 19.9510993958
+point.y = 50.0441017151
+point.x = 19.9510993958
 point.save
 place = Place.new
 place.point_id = point.id
@@ -570,8 +570,8 @@ place.description = 'Żydowski dom modlitwy, zakład stolarski i słynna galeria
 place.save
 
 point = Point.new
-point.x = 50.0472984314
-point.y = 19.9517993927
+point.y = 50.0472984314
+point.x = 19.9517993927
 point.save
 place = Place.new
 place.point_id = point.id
@@ -581,8 +581,8 @@ place.description = 'Podgórze posiadało własną elektrownię pięć lat wcze�
 place.save
 
 point = Point.new
-point.x = 50.0396003723
-point.y = 19.9433002472
+point.y = 50.0396003723
+point.x = 19.9433002472
 point.save
 place = Place.new
 place.point_id = point.id
@@ -592,8 +592,8 @@ place.description = 'Założony we Włoszech przez Alfonsa Liguoriego Zakon Zgro
 place.save
 
 point = Point.new
-point.x = 50.0432014465
-point.y = 19.9577007294
+point.y = 50.0432014465
+point.x = 19.9577007294
 point.save
 place = Place.new
 place.point_id = point.id
@@ -603,8 +603,8 @@ place.description = 'Ten niewielki kościół można zobaczyć od środka tylko 
 place.save
 
 point = Point.new
-point.x = 50.0567016602
-point.y = 19.9386005402
+point.y = 50.0567016602
+point.x = 19.9386005402
 point.save
 place = Place.new
 place.point_id = point.id
@@ -614,8 +614,8 @@ place.description = 'Najlepiej zachowany przykład architektury romańskiej w Kr
 place.save
 
 point = Point.new
-point.x = 50.0551986694
-point.y = 19.9379997253
+point.y = 50.0551986694
+point.x = 19.9379997253
 point.save
 place = Place.new
 place.point_id = point.id
@@ -625,8 +625,8 @@ place.description = 'Według tradycji świątynię tę wzniósł książę Wład
 place.save
 
 point = Point.new
-point.x = 50.0433006287
-point.y = 19.9500007629
+point.y = 50.0433006287
+point.x = 19.9500007629
 point.save
 place = Place.new
 place.point_id = point.id
@@ -636,8 +636,8 @@ place.description = 'Kościół ten - z niezwykle bogatą, wywołującą wręcz 
 place.save
 
 point = Point.new
-point.x = 50.0561981201
-point.y = 19.9386005402
+point.y = 50.0561981201
+point.x = 19.9386005402
 point.save
 place = Place.new
 place.point_id = point.id
@@ -647,8 +647,8 @@ place.description = 'Wczesnobarokowa świątynia ze skromną fasadą zbudowana w
 place.save
 
 point = Point.new
-point.x = 50.060798645
-point.y = 19.9375
+point.y = 50.060798645
+point.x = 19.9375
 point.save
 place = Place.new
 place.point_id = point.id
@@ -658,8 +658,8 @@ place.description = 'Tradycja wiąże miejsce, gdzie stanął kościół, z kaza
 place.save
 
 point = Point.new
-point.x = 50.0392990112
-point.y = 19.9494991302
+point.y = 50.0392990112
+point.x = 19.9494991302
 point.save
 place = Place.new
 place.point_id = point.id
@@ -669,8 +669,8 @@ place.description = 'Zróżnicowana struktura geologiczna budowała od zawsze na
 place.save
 
 point = Point.new
-point.x = 50.0652008057
-point.y = 19.941400528
+point.y = 50.0652008057
+point.x = 19.941400528
 point.save
 place = Place.new
 place.point_id = point.id
@@ -680,8 +680,8 @@ place.description = 'Kraków mógł się poszczycić 7 bramami i 47 basztami wbu
 place.save
 
 point = Point.new
-point.x = 50.0416984558
-point.y = 19.948299408
+point.y = 50.0416984558
+point.x = 19.948299408
 point.save
 place = Place.new
 place.point_id = point.id
@@ -691,8 +691,8 @@ place.description = 'W latach 90. XIX w. zrodziła się koncepcja, aby w częśc
 place.save
 
 point = Point.new
-point.x = 50.0635986328
-point.y = 19.9428005219
+point.y = 50.0635986328
+point.x = 19.9428005219
 point.save
 place = Place.new
 place.point_id = point.id
@@ -702,8 +702,8 @@ place.description = 'Kraków miał wiele pomysłów na zabudowę tego placu. Nie
 place.save
 
 point = Point.new
-point.x = 50.065700531
-point.y = 19.9368000031
+point.y = 50.065700531
+point.x = 19.9368000031
 point.save
 place = Place.new
 place.point_id = point.id
@@ -713,8 +713,8 @@ place.description = 'Planty podzielone na 8 ogrodów mają ok. 4 km długości i
 place.save
 
 point = Point.new
-point.x = 50.0451011658
-point.y = 19.9477005005
+point.y = 50.0451011658
+point.x = 19.9477005005
 point.save
 place = Place.new
 place.point_id = point.id
@@ -724,8 +724,8 @@ place.description = 'W roku 1784 arcyksiążę austriacki Józef II nadał prawa
 place.save
 
 point = Point.new
-point.x = 50.0442008972
-point.y = 19.94921875
+point.y = 50.0442008972
+point.x = 19.94921875
 point.save
 place = Place.new
 place.point_id = point.id
@@ -735,8 +735,8 @@ place.description = 'Dzisiejszy rynek wytyczono u podnóża wzgórza Lasoty jako
 place.save
 
 point = Point.new
-point.x = 50.0484008789
-point.y = 19.9377994537
+point.y = 50.0484008789
+point.x = 19.9377994537
 point.save
 place = Place.new
 place.point_id = point.id
@@ -746,8 +746,8 @@ place.description = 'Wielowiekowa tradycja sprawiła, że kościół na Skałce 
 place.save
 
 point = Point.new
-point.x = 50.0632019043
-point.y = 19.9354000092
+point.y = 50.0632019043
+point.x = 19.9354000092
 point.save
 place = Place.new
 place.point_id = point.id
@@ -757,8 +757,8 @@ place.description = 'Kraków może się poszczycić najstarszym wciąż funkcjon
 place.save
 
 point = Point.new
-point.x = 50.0539016724
-point.y = 19.9384994507
+point.y = 50.0539016724
+point.x = 19.9384994507
 point.save
 place = Place.new
 place.point_id = point.id
@@ -768,8 +768,8 @@ place.description = 'Pierwsi zakonnicy bernardyńscy w Krakowie rekrutowali się
 place.save
 
 point = Point.new
-point.x = 50.0536003113
-point.y = 19.9402008057
+point.y = 50.0536003113
+point.x = 19.9402008057
 point.save
 place = Place.new
 place.point_id = point.id
@@ -779,8 +779,8 @@ place.description = 'Kościół na Stradomiu, należący do oo. Misjonarzy, zbud
 place.save
 
 point = Point.new
-point.x = 50.0634002686
-point.y = 19.9402999878
+point.y = 50.0634002686
+point.x = 19.9402999878
 point.save
 place = Place.new
 place.point_id = point.id
@@ -790,8 +790,8 @@ place.description = 'Ulica Floriańska była od zawsze jedną z ważniejszych ul
 place.save
 
 point = Point.new
-point.x = 50.0565986633
-point.y = 19.9374008179
+point.y = 50.0565986633
+point.x = 19.9374008179
 point.save
 place = Place.new
 place.point_id = point.id
@@ -801,8 +801,8 @@ place.description = 'Malownicza ulica Kanonicza jest najlepiej zachowaną zabytk
 place.save
 
 point = Point.new
-point.x = 50.0365982056
-point.y = 19.9388999939
+point.y = 50.0365982056
+point.x = 19.9388999939
 point.save
 place = Place.new
 place.point_id = point.id
@@ -812,8 +812,8 @@ place.description = 'Nazwisko Antoniego Matecznego powszechnie kojarzy się w Kr
 place.save
 
 point = Point.new
-point.x = 50.0546989441
-point.y = 19.9354000092
+point.y = 50.0546989441
+point.x = 19.9354000092
 point.save
 place = Place.new
 place.point_id = point.id
@@ -823,8 +823,8 @@ place.description = 'Nie każdy zgadnie, która świątynia nosi oficjalne miano
 place.save
 
 point = Point.new
-point.x = 50.0547981262
-point.y = 19.9356002808
+point.y = 50.0547981262
+point.x = 19.9356002808
 point.save
 place = Place.new
 place.point_id = point.id
@@ -834,8 +834,8 @@ place.description = 'Najsłynniejszy - choć nie najstarszy - polski dzwon zosta
 place.save
 
 point = Point.new
-point.x = 50.0546989441
-point.y = 19.9354991913
+point.y = 50.0546989441
+point.x = 19.9354991913
 point.save
 place = Place.new
 place.point_id = point.id
@@ -845,8 +845,8 @@ place.description = 'Rząd krypt w Katedrze Królewskiej na Wawelu to jedyna w s
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.9391002655
+point.y = 50.0616989136
+point.x = 19.9391002655
 point.save
 place = Place.new
 place.point_id = point.id
@@ -856,8 +856,8 @@ place.description = 'Ponad 600 lat historii, ołtarz Wita Stwosza, hejnał, gwia
 place.save
 
 point = Point.new
-point.x = 50.0614013672
-point.y = 19.9398994446
+point.y = 50.0614013672
+point.x = 19.9398994446
 point.save
 place = Place.new
 place.point_id = point.id
@@ -867,8 +867,8 @@ place.description = 'Kościół ten został wzniesiony ok 1400 r., najprawdopodo
 place.save
 
 point = Point.new
-point.x = 50.0569000244
-point.y = 19.9377994537
+point.y = 50.0569000244
+point.x = 19.9377994537
 point.save
 place = Place.new
 place.point_id = point.id
@@ -878,8 +878,8 @@ place.description = 'Jak wiele placów w mieście - był kiedyś rynkiem niezale
 place.save
 
 point = Point.new
-point.x = 50.0572013855
-point.y = 19.9379997253
+point.y = 50.0572013855
+point.x = 19.9379997253
 point.save
 place = Place.new
 place.point_id = point.id
@@ -889,8 +889,8 @@ place.description = 'Już od swoich początków w średniowieczu ten budynek Aka
 place.save
 
 point = Point.new
-point.x = 50.0614013672
-point.y = 19.9377994537
+point.y = 50.0614013672
+point.x = 19.9377994537
 point.save
 place = Place.new
 place.point_id = point.id
@@ -900,8 +900,8 @@ place.description = 'Krakowską tradycją stało się umawianie się „pod Adas
 place.save
 
 point = Point.new
-point.x = 50.0536994934
-point.y = 19.9332008362
+point.y = 50.0536994934
+point.x = 19.9332008362
 point.save
 place = Place.new
 place.point_id = point.id
@@ -911,8 +911,8 @@ place.description = 'Jaskinię pod Wzgórzem Wawelskim - o łącznej długości 
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.9374008179
+point.y = 50.0616989136
+point.x = 19.9374008179
 point.save
 place = Place.new
 place.point_id = point.id
@@ -922,8 +922,8 @@ place.description = 'Wizytówka miasta, najstarsze krakowskie "centrum handlowe"
 place.save
 
 point = Point.new
-point.x = 50.0541000366
-point.y = 19.9365005493
+point.y = 50.0541000366
+point.x = 19.9365005493
 point.save
 place = Place.new
 place.point_id = point.id
@@ -933,8 +933,8 @@ place.description = 'Jak wyglądał Wawel w czasach pierwszych Piastów? Tego do
 place.save
 
 point = Point.new
-point.x = 50.0550003052
-point.y = 19.8932991028
+point.y = 50.0550003052
+point.x = 19.8932991028
 point.save
 place = Place.new
 place.point_id = point.id
@@ -944,8 +944,8 @@ place.description = 'Pomnik-świadectwo pamięci o narodowym bohaterze. Wybrano 
 place.save
 
 point = Point.new
-point.x = 50.0544013977
-point.y = 19.9370002747
+point.y = 50.0544013977
+point.x = 19.9370002747
 point.save
 place = Place.new
 place.point_id = point.id
@@ -955,8 +955,8 @@ place.description = 'Odznaczająca się wielkim artystycznym smakiem renesansowa
 place.save
 
 point = Point.new
-point.x = 50.0535011292
-point.y = 19.9526996613
+point.y = 50.0535011292
+point.x = 19.9526996613
 point.save
 place = Place.new
 place.point_id = point.id
@@ -966,8 +966,8 @@ place.description = 'Teren pod cmentarz żydowski zakupiono od katolickiego zako
 place.save
 
 point = Point.new
-point.x = 50.0546989441
-point.y = 19.9368991852
+point.y = 50.0546989441
+point.x = 19.9368991852
 point.save
 place = Place.new
 place.point_id = point.id
@@ -977,8 +977,8 @@ place.description = 'Dzieje skarbca na Wawelu sięgają prawdopodobnie zamierzch
 place.save
 
 point = Point.new
-point.x = 50.0462989807
-point.y = 19.9542007446
+point.y = 50.0462989807
+point.x = 19.9542007446
 point.save
 place = Place.new
 place.point_id = point.id
@@ -988,8 +988,8 @@ place.description = 'Tadeusz Pankiewicz, farmaceuta z dyplomem Uniwersytetu Jagi
 place.save
 
 point = Point.new
-point.x = 50.047492981
-point.y = 19.9623298645
+point.y = 50.047492981
+point.x = 19.9623298645
 point.save
 place = Place.new
 place.point_id = point.id
@@ -999,8 +999,8 @@ place.description = 'Fabryka przy ulicy Lipowej 4 zaczęła działalność dwa l
 place.save
 
 point = Point.new
-point.x = 50.0466995239
-point.y = 19.9543991089
+point.y = 50.0466995239
+point.x = 19.9543991089
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1010,8 +1010,8 @@ place.description = 'Wytyczono go około roku 1838 jako rynek pomocniczy miasta 
 place.save
 
 point = Point.new
-point.x = 50.0526008606
-point.y = 19.9456996918
+point.y = 50.0526008606
+point.x = 19.9456996918
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1021,8 +1021,8 @@ place.description = 'Nazwa pochodzi z język hebrajskiego, kupa oznacza w nim bo
 place.save
 
 point = Point.new
-point.x = 50.0514984131
-point.y = 19.9477005005
+point.y = 50.0514984131
+point.x = 19.9477005005
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1032,8 +1032,8 @@ place.description = 'Zbudowana w latach 1556-1563 należała do najbogatszych sy
 place.save
 
 point = Point.new
-point.x = 50.0525512695
-point.y = 19.9481239319
+point.y = 50.0525512695
+point.x = 19.9481239319
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1043,8 +1043,8 @@ place.description = 'Ta ulica to właściwie wydłużony rynek, ze starymi synag
 place.save
 
 point = Point.new
-point.x = 50.0377006531
-point.y = 19.9584007263
+point.y = 50.0377006531
+point.x = 19.9584007263
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1054,8 +1054,8 @@ place.description = 'Książę Krak miał być legendarnym założycielem Krakow
 place.save
 
 point = Point.new
-point.x = 50.0600166321
-point.y = 19.8472099304
+point.y = 50.0600166321
+point.x = 19.8472099304
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1065,8 +1065,8 @@ place.description = 'Miał upamiętnić odzyskanie przez Polskę niepodległośc
 place.save
 
 point = Point.new
-point.x = 50.0694999695
-point.y = 20.067899704
+point.y = 50.0694999695
+point.x = 20.067899704
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1076,8 +1076,8 @@ place.description = 'Kim była Wanda i dlaczego usypano jej kopiec? Legendy mów
 place.save
 
 point = Point.new
-point.x = 50.0547981262
-point.y = 19.9384994507
+point.y = 50.0547981262
+point.x = 19.9384994507
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1087,8 +1087,8 @@ place.description = 'Tę ważną ze względów strategicznych budowlę wzniósł
 place.save
 
 point = Point.new
-point.x = 50.0648002625
-point.y = 19.9410991669
+point.y = 50.0648002625
+point.x = 19.9410991669
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1098,8 +1098,8 @@ place.description = 'W latach 1565-1566 król Zygmunt August sfinalizował budow
 place.save
 
 point = Point.new
-point.x = 50.061000824
-point.y = 19.9330997467
+point.y = 50.061000824
+point.x = 19.9330997467
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1109,8 +1109,8 @@ place.description = 'Najokazalszy gmach Uniwersytetu Jagiellońskiego wzniesiono
 place.save
 
 point = Point.new
-point.x = 50.0625991821
-point.y = 19.9412994385
+point.y = 50.0625991821
+point.x = 19.9412994385
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1120,8 +1120,8 @@ place.description = 'Dom ten kryje zręby średniowiecznego szpitala scholarów 
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.9374008179
+point.y = 50.0616989136
+point.x = 19.9374008179
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1131,8 +1131,8 @@ place.description = 'Pałac Pod Baranami, Jaszczury, Krzysztofory... Nazwy tych 
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.9374008179
+point.y = 50.0616989136
+point.x = 19.9374008179
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1142,8 +1142,8 @@ place.description = 'Rozporządzeniem gubernatora dystryktu krakowskiego Otto W�
 place.save
 
 point = Point.new
-point.x = 50.0620002747
-point.y = 19.9333992004
+point.y = 50.0620002747
+point.x = 19.9333992004
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1153,8 +1153,8 @@ place.description = 'Profesorowie Uniwersytetu Jagiellońskiego (zwanego wtedy j
 place.save
 
 point = Point.new
-point.x = 50.057800293
-point.y = 19.9365005493
+point.y = 50.057800293
+point.x = 19.9365005493
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1164,8 +1164,8 @@ place.description = 'U zbiegu dzisiejszych ulic Senackiej i Poselskiej stał nie
 place.save
 
 point = Point.new
-point.x = 50.0649986267
-point.y = 19.9398994446
+point.y = 50.0649986267
+point.x = 19.9398994446
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1175,8 +1175,8 @@ place.description = 'Ulicę św. Jana zamyka od północy efektownie rozwiązana
 place.save
 
 point = Point.new
-point.x = 50.0648002625
-point.y = 19.9363002777
+point.y = 50.0648002625
+point.x = 19.9363002777
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1186,8 +1186,8 @@ place.description = 'Niepozorny z zewnątrz kościół pod wezwaniem św. Kazimi
 place.save
 
 point = Point.new
-point.x = 50.0632019043
-point.y = 19.9388999939
+point.y = 50.0632019043
+point.x = 19.9388999939
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1197,8 +1197,8 @@ place.description = 'Już samo usytuowanie kościoła - ukosem i poza linią reg
 place.save
 
 point = Point.new
-point.x = 50.0646018982
-point.y = 19.9379005432
+point.y = 50.0646018982
+point.x = 19.9379005432
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1208,8 +1208,8 @@ place.description = 'Budowa kościoła ufundowanego przez Bolesława Wstydliwego
 place.save
 
 point = Point.new
-point.x = 50.0602989197
-point.y = 19.934299469
+point.y = 50.0602989197
+point.x = 19.934299469
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1219,8 +1219,8 @@ place.description = 'Budowę kościoła prowadzono w latach 1636-1643 dzięki st
 place.save
 
 point = Point.new
-point.x = 50.0611991882
-point.y = 19.9403991699
+point.y = 50.0611991882
+point.x = 19.9403991699
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1230,8 +1230,8 @@ place.description = 'Mały Rynek zwano forum antiquum (od uprawianego tu handlu 
 place.save
 
 point = Point.new
-point.x = 50.0327987671
-point.y = 19.9640007019
+point.y = 50.0327987671
+point.x = 19.9640007019
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1241,8 +1241,8 @@ place.description = 'W szczytowym momencie jego istnienia w obozie przebywało w
 place.save
 
 point = Point.new
-point.x = 50.0616989136
-point.y = 19.9374008179
+point.y = 50.0616989136
+point.x = 19.9374008179
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1252,8 +1252,8 @@ place.description = 'Ogromny, główny plac miejski, wytyczony został podczas l
 place.save
 
 point = Point.new
-point.x = 50.0424003601
-point.y = 19.9596996307
+point.y = 50.0424003601
+point.x = 19.9596996307
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1263,8 +1263,8 @@ place.description = 'Powstał prawdopodobnie tuż po nadaniu Podgórzu praw miej
 place.save
 
 point = Point.new
-point.x = 50.0377998352
-point.y = 19.9624996185
+point.y = 50.0377998352
+point.x = 19.9624996185
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1274,8 +1274,8 @@ place.description = 'Spoczywają tu zasłużeni mieszkańcy miasta, a później 
 place.save
 
 point = Point.new
-point.x = 50.0457992554
-point.y = 19.9524993896
+point.y = 50.0457992554
+point.x = 19.9524993896
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1285,8 +1285,8 @@ place.description = 'Józefińska jest jedną z najstarszych w pierwotnym układ
 place.save
 
 point = Point.new
-point.x = 50.0583992004
-point.y = 19.9379997253
+point.y = 50.0583992004
+point.x = 19.9379997253
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1296,8 +1296,8 @@ place.description = 'Ulica Grodzka jest jedną z najstarszych w Krakowie. Istnia
 place.save
 
 point = Point.new
-point.x = 50.0659828186
-point.y = 19.941493988
+point.y = 50.0659828186
+point.x = 19.941493988
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1307,8 +1307,8 @@ place.description = 'Zalążkiem dzisiejszej akademii były katedry rysunku, mal
 place.save
 
 point = Point.new
-point.x = 50.0643005371
-point.y = 19.9238777161
+point.y = 50.0643005371
+point.x = 19.9238777161
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1318,8 +1318,8 @@ place.description = 'Elegancka w formie zabudowa czynszowa oraz imponujące swym
 place.save
 
 point = Point.new
-point.x = 50.0655708313
-point.y = 19.9497127533
+point.y = 50.0655708313
+point.x = 19.9497127533
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1329,8 +1329,8 @@ place.description = 'Krakowskie Bractwo Kurkowe założono prawdopodobnie w XIV 
 place.save
 
 point = Point.new
-point.x = 50.0876846313
-point.y = 19.8779582977
+point.y = 50.0876846313
+point.x = 19.8779582977
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1340,8 +1340,8 @@ place.description = 'Dawna wieś, położona ok. 5 km od Krakowa nad Rudawą, za
 place.save
 
 point = Point.new
-point.x = 50.0746574402
-point.y = 19.9537467957
+point.y = 50.0746574402
+point.x = 19.9537467957
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1351,8 +1351,8 @@ place.description = 'Założony na początku XIX w., zastąpił wszystkie dotych
 place.save
 
 point = Point.new
-point.x = 50.0526733398
-point.y = 19.903793335
+point.y = 50.0526733398
+point.x = 19.903793335
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1362,8 +1362,8 @@ place.description = 'Cmentarz Salwatorski założony został w roku 1865. Wieczn
 place.save
 
 point = Point.new
-point.x = 50.0658187866
-point.y = 19.930273056
+point.y = 50.0658187866
+point.x = 19.930273056
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1373,8 +1373,8 @@ place.description = 'Z początkiem XV wieku rozwinęła się tu największa miej
 place.save
 
 point = Point.new
-point.x = 50.058380127
-point.y = 19.9022922516
+point.y = 50.058380127
+point.x = 19.9022922516
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1384,8 +1384,8 @@ place.description = 'Mnóstwo zieleni, tajemnicze zakątki i ciekawa, zróżnico
 place.save
 
 point = Point.new
-point.x = 50.068157196
-point.y = 19.9392414093
+point.y = 50.068157196
+point.x = 19.9392414093
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1395,8 +1395,8 @@ place.description = 'Osada kleparska powstała pod koniec XII wieku wokół ufun
 place.save
 
 point = Point.new
-point.x = 50.0869407654
-point.y = 19.9570941925
+point.y = 50.0869407654
+point.x = 19.9570941925
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1406,8 +1406,8 @@ place.description = 'W kościele tym szczególnie czci się św. Brata Alberta -
 place.save
 
 point = Point.new
-point.x = 50.0530319214
-point.y = 19.9125061035
+point.y = 50.0530319214
+point.x = 19.9125061035
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1417,8 +1417,8 @@ place.description = 'Tradycja każe wiązać to miejsce z pogańską świątyni�
 place.save
 
 point = Point.new
-point.x = 50.0624961853
-point.y = 19.9495201111
+point.y = 50.0624961853
+point.x = 19.9495201111
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1428,8 +1428,8 @@ place.description = 'W zwieńczonej monumentalną wieżą budowli pobrzmiewają 
 place.save
 
 point = Point.new
-point.x = 50.0653762817
-point.y = 19.931646347
+point.y = 50.0653762817
+point.x = 19.931646347
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1439,8 +1439,8 @@ place.description = 'Kiedy papież Urban VI ustanowił nowe święto - Nawiedzen
 place.save
 
 point = Point.new
-point.x = 50.0456466675
-point.y = 19.8408355713
+point.y = 50.0456466675
+point.x = 19.8408355713
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1450,8 +1450,8 @@ place.description = 'Wniebowzięcia Najświętszej Marii Panny. Obecna nazwa "Bi
 place.save
 
 point = Point.new
-point.x = 50.0617141724
-point.y = 19.9300575256
+point.y = 50.0617141724
+point.x = 19.9300575256
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1461,8 +1461,8 @@ place.description = 'Osobliwością kościoła jest armatnia kula umieszczona w 
 place.save
 
 point = Point.new
-point.x = 50.0520973206
-point.y = 19.9147148132
+point.y = 50.0520973206
+point.x = 19.9147148132
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1472,8 +1472,8 @@ place.description = 'To stąd, rok w rok od niepamiętnych czasów wyrusza na sw
 place.save
 
 point = Point.new
-point.x = 50.0674819946
-point.y = 19.9431247711
+point.y = 50.0674819946
+point.x = 19.9431247711
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1483,8 +1483,8 @@ place.description = 'Relikwie świętego Floriana, bohatera wypraw krzyżowych s
 place.save
 
 point = Point.new
-point.x = 50.0606651306
-point.y = 19.9458503723
+point.y = 50.0606651306
+point.x = 19.9458503723
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1494,8 +1494,8 @@ place.description = 'Jest to jeden z ciekawszych i najstarszych krakowskich koś
 place.save
 
 point = Point.new
-point.x = 50.0526199341
-point.y = 19.9123344421
+point.y = 50.0526199341
+point.x = 19.9123344421
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1505,8 +1505,8 @@ place.description = 'Przy ulicy bł. Bronisławy na Zwierzyńcu podziwiać możn
 place.save
 
 point = Point.new
-point.x = 50.0186882019
-point.y = 19.8024272919
+point.y = 50.0186882019
+point.x = 19.8024272919
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1516,8 +1516,8 @@ place.description = 'Opactwo położone jest na wysokim wapiennym wzgórzu, wzno
 place.save
 
 point = Point.new
-point.x = 50.0533103943
-point.y = 19.9106388092
+point.y = 50.0533103943
+point.x = 19.9106388092
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1527,8 +1527,8 @@ place.description = 'Osiedle-ogród rozplanowano zgodnie z ideą angielskiego ur
 place.save
 
 point = Point.new
-point.x = 50.0667266846
-point.y = 19.9421596527
+point.y = 50.0667266846
+point.x = 19.9421596527
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1538,8 +1538,8 @@ place.description = 'Nazwa placu wiązała się z ofiarowaniem malarzowi Janowi 
 place.save
 
 point = Point.new
-point.x = 50.0666007996
-point.y = 19.9422035217
+point.y = 50.0666007996
+point.x = 19.9422035217
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1549,8 +1549,8 @@ place.description = 'Odsłonięcie pomnika w 1910 roku było centralnym punktem 
 place.save
 
 point = Point.new
-point.x = 50.0597305298
-point.y = 19.9275684357
+point.y = 50.0597305298
+point.x = 19.9275684357
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1560,8 +1560,8 @@ place.description = 'Dzisiejsza ulica Piłsudskiego zyskała swój obecny kszta�
 place.save
 
 point = Point.new
-point.x = 50.0632553101
-point.y = 19.9528026581
+point.y = 50.0632553101
+point.x = 19.9528026581
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1571,8 +1571,8 @@ place.description = 'Nazwa tej części miasta powoli wychodzi z użycia, zapomi
 place.save
 
 point = Point.new
-point.x = 50.0539131165
-point.y = 19.8953399658
+point.y = 50.0539131165
+point.x = 19.8953399658
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1582,8 +1582,8 @@ place.description = 'Bronisława norbertanka i mistyczka, beatyfikowana przez pa
 place.save
 
 point = Point.new
-point.x = 50.0472335815
-point.y = 19.9599266052
+point.y = 50.0472335815
+point.x = 19.9599266052
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1593,8 +1593,8 @@ place.description = 'Praca AUSCHWITZ WIELICZKA jest pierwszą stałą pracą Mir
 place.save
 
 point = Point.new
-point.x = 50.0458946228
-point.y = 19.9481678009
+point.y = 50.0458946228
+point.x = 19.9481678009
 point.save
 place = Place.new
 place.point_id = point.id
@@ -1604,8 +1604,8 @@ place.description = 'Kładka pieszo-rowerowa na Wiśle u wylotu ulic Mostowej i 
 place.save
 
 point = Point.new
-point.x = 50.0470542908
-point.y = 19.947052002
+point.y = 50.0470542908
+point.x = 19.947052002
 point.save
 place = Place.new
 place.point_id = point.id
