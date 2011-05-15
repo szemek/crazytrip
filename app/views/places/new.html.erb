@@ -1,4 +1,12 @@
 <%= form_for(@place) do |f| %>
+
+  <div class="small" id="map"></div>
+  <!-- Map params -->
+<param id="zoom" value="14" />
+<param id="disableDefaultUI" />
+<param id="draggable" />
+<param id="addNewPlace" />
+
   <%= render 'fields', :f => f %>
   <div class="actions">
     <%= f.submit "Add" %>

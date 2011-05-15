@@ -1,6 +1,6 @@
 <%= form_for(@trip) do |f| %>
   <%= render 'fields', :f => f %>
-  <div id="map"></div>
+  <div class="big" id="map"></div>
   <p><%= link_to_add_fields "Add point", f, :points %></p>
   <div class="actions">
     <%= f.submit "Add" %>

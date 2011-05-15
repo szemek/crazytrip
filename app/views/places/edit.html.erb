@@ -1,4 +1,14 @@
 <%= form_for(@place) do |f| %>
+
+<div class="small" id="map"></div>
+<!-- Map params -->
+<param id="longitude" value="<%= @place.point.x %>"/>
+<param id="latitude" value="<%= @place.point.y %>"/>
+<param id="zoom" value="14" />
+<param id="addListener" />
+<param id="disableDefaultUI" />
+<param id="draggable" />
+
   <%= render 'fields', :f => f %>
   <div class="actions">
     <%= f.submit "Save" %>
