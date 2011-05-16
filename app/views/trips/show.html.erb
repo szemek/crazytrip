@@ -1,4 +1,4 @@
-<% if @trip.public %>
+<% if @trip.public && @trip.user != nil %>
 <p>Author <%= link_to "#{@trip.user.first_name} #{@trip.user.last_name}", user_path(@trip.user) %></p>
 <% end %>
 <p><%= @trip.description %></p>

@@ -6,7 +6,7 @@
   															:title => "Delete #{place.name}" %>
 	| <%= link_to "edit", edit_place_path(place) %>
 	<% else %>
-	<% if !@search %>
+	<% if @search %>
   - place
   <% end %>
   <% end %>

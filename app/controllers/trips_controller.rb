@@ -29,7 +29,7 @@ class TripsController < ApplicationController
     if !current_user.admin?
     	@trip = current_user.trips.build(params[:trip])
     else
-        @trip = Trip.new(params[:place])
+        @trip = Trip.new(params[:trip])
     end
     if @trip.save
       flash[:success] = "Trip added"
