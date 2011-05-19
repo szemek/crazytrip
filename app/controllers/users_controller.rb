@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Crazytrip!"
+      UserMailer.registration_confirmation(@user).deliver
       redirect_to root_path
     else
       @title = "Sign up"
