@@ -33,8 +33,6 @@
   <%= f.text_field :minutes %> minutes
 </div>
 
-<%= f.fields_for @medium do |medium_form| %>
 <div class="field">
-  <%= medium_form.file_field :data %>
+  <%= file_field_tag :medium %>
 </div>
-<% end %>

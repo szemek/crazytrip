@@ -31,7 +31,8 @@ class PlacesController < ApplicationController
     @point = Point.new(params[:place][:point])
     @point.save
     params[:place][:point]=@point
-    @medium = Medium.new(params[:place][:medium])
+    @medium = Medium.new
+    @medium.uploaded_file = params[:place][:medium][:data]
     @place = Place.new(params[:place])
     if !current_user.admin?
     	@place = current_user.places.build(params[:place])
