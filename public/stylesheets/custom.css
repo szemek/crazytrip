@@ -1,6 +1,9 @@
 .container {
-  position: relative;
   width: 800px;
+  clear: both;
+}
+
+#content {
 }
 
 body {
@@ -25,11 +28,16 @@ section {
 section h1 {
   font-size: 200%;
 }
+
+#description {
+  text-align:justify;
+}
+
 /* Map */
 #map {
-  position: relative;
   float: right;
-  right: 10px;
+  display: block;
+  margin-left: 15px;
 }
 
 .big {
@@ -38,8 +46,8 @@ section h1 {
 }
 
 .small {
-  height: 150px;
-  width: 200px;
+  height: 300px;
+  width: 350px;
 }
 
 /* Links */

@@ -20,10 +20,12 @@
         <% unless @title.blank? %>
         <h1><%= @title %></h1>
         <%end %>
+        <div id="content">
         <%= yield %>
+        </div>
       </section>
-      <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
 

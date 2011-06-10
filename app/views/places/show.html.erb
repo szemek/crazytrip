@@ -1,25 +1,33 @@
+<% if current_user.admin || current_user == @place.user %>
+  <%= link_to "delete", @place, :method => :delete,
+                                :confirm => "You sure?",
+                                :title => "Delete #{@place.name}" %>
+  <% end %>
+  <% if current_user == @place.user %>  
+	<%= link_to "edit", edit_place_path(@place) %>
+  <% end %>
+
 <div class="small" id="map"></div>
 <!-- Map params -->
 <param id="longitude" value="<%= @place.point.x %>"/>
 <param id="latitude" value="<%= @place.point.y %>"/>
 <param id="zoom" value="14" />
 <param id="listener" value="off" />
-<param id="disableDefaultUI" />
 
-
+<div id="description">
 <p><%= @place.description %></p>
-<p>Longitude <%= @place.point.x %>, Latitude <%= @place.point.y %></p>
+<p>Longitude <%= @place.point.x.round(3) %> <br/>
+Latitude <%= @place.point.y.round(3) %></p>
 <p>Approximate visit time <%= @place.minutes %> minutes</p>
 
-<% if @list.count!=0 %>
+<% if @trips_list.count!=0 %>
 <h3>Trips with this point</h3>
-<%end%>
-<%= will_paginate @list%>
+<%= will_paginate @trips_list %>
 <ul class="list">
-  <%= render @list %>
+  <%= render @trips_list %>
 </ul>
+<%= will_paginate @trips_list %>
+<%end%>
+</div>
 
-<%= will_paginate @list %>
-
-
-
+<div style="clear: both;"> </div>

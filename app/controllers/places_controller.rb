@@ -18,7 +18,9 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @title = @place.name
-    @trips_list = @place.point.trips.paginate(:page => params[:page])
+    @trips_list = @place.point.trips.public.all
+    @trips_list += @place.point.trips.where(:user_id => current_user.id).all
+    @trips_list = @trips_list.uniq.paginate(:page => params[:page])
   end
     
   def new
@@ -77,7 +79,7 @@ class PlacesController < ApplicationController
     redirect_to places_path
   end
   
-  private
+  #private
 
     def correct_user
       @user = Place.find(params[:id]).user
@@ -89,7 +91,7 @@ class PlacesController < ApplicationController
     	redirect_to(root_path) unless @place.user==nil || current_user==@place.user || current_user.admin?
   
     def correct_destroy
-      @tplace = Place.find(params[:id])
+      @place = Place.find(params[:id])
       redirect_to(root_path) unless current_user==@place.user || current_user.admin?
     end
   end

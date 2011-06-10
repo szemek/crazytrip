@@ -3,12 +3,12 @@
   <% if @search %>
   - trip
   <% end %>
-  <% if current_user.admin || !@search %>
+  <% if (current_user.admin || !@search) && !@trips_list %>
   | <%= link_to "delete", trip,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{trip.name}" %>
   <% end %>
-  <% if !current_user.admin && !@search %>  															
+  <% if !current_user.admin && !@search && !@trips_list %>  															
   | <%= link_to "edit", edit_trip_path(trip) %>
   <% end %>
 </li>
