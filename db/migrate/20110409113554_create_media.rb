@@ -3,6 +3,7 @@ class CreateMedia < ActiveRecord::Migration
     create_table :media do |t|
       t.binary "data"
       t.references :medium_category
+      t.references :place
       t.timestamps
     end
     add_index :media, [:medium_category_id]

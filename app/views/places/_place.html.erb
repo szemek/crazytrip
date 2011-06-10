@@ -3,12 +3,12 @@
   <% if @search %>
   - place
   <% end %>
-  <% if current_user.admin || !@search %>
+  <% if current_user.admin && !@search && !@trips_list %>
   | <%= link_to "delete", place,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{place.name}" %>
   <% end %>
-  <% if !current_user.admin && !@search %>  
+  <% if !current_user.admin && !@search && !@trips_list %>  
 	| <%= link_to "edit", edit_place_path(place) %>
   <% end %>
 </li>

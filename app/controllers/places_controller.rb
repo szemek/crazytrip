@@ -18,12 +18,13 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @title = @place.name
-    @list=@place.point.trips.paginate(:page => params[:page])
+    @trips_list = @place.point.trips.paginate(:page => params[:page])
   end
     
   def new
     @place = Place.new
     @point = Point.new
+    @medium = Medium.new
     @title = "Add place"
   end
 
@@ -37,6 +38,9 @@ class PlacesController < ApplicationController
     	@place = Place.new(params[:place])
     end
     if @place.save
+      @medium[:place_id] = @place[:id]
+      @medium[:medium_category_id] = 1
+      @medium.save
       flash[:success] = "Place added."
       redirect_to @place
     else
