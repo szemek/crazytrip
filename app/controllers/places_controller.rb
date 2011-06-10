@@ -24,6 +24,7 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
     @point = Point.new
+    @medium = Medium.new
     @title = "Add place"
   end
 
@@ -37,6 +38,9 @@ class PlacesController < ApplicationController
     	@place = Place.new(params[:place])
     end
     if @place.save
+      @medium[:place_id] = @place[:id]
+      @medium[:medium_category_id] = 1
+      @medium.save
       flash[:success] = "Place added."
       redirect_to @place
     else

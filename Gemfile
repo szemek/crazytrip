@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '2.1.4', :require => "bcrypt"
 gem 'will_paginate', '3.0.pre2'
 gem 'faker', '0.3.1'
 gem 'mail', '2.2.15'
+gem 'jquery-rails', '1.0.9'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

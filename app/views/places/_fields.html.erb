@@ -10,6 +10,7 @@
 <div class="field">
   <%= f.text_area :description %>
 </div>
+
 <%= f.fields_for @point do |point_form| %>
 <div class="field">
   <%= point_form.label :longitude %>
@@ -24,6 +25,7 @@
   <%= point_form.text_field :y %>
 </div>
 <% end %>
+
 <div class="field">
   <%= f.label "Approximate visit time" %>
 </div>
@@ -31,3 +33,6 @@
   <%= f.text_field :minutes %> minutes
 </div>
 
+<div class="field">
+  <%= file_field_tag :medium %>
+</div>

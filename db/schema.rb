@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
   create_table "media", :force => true do |t|
     t.binary   "data"
     t.integer  "medium_category_id"
+    t.integer  "place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
