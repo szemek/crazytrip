@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => [:index, :destroy]
-  before_filter :new_user,   :only => [:new, :create]	
+  before_filter :authenticate, 	:only => [:index, :edit, :update, :destroy]
+  before_filter :correct_user, 	:only => [:edit, :update]
+  before_filter :admin_user,   	:only => [:index, :destroy]
+  before_filter :new_user,			:only => [:new, :create]	
 	
   def index
     @title = "All users"
@@ -42,9 +42,9 @@ class UsersController < ApplicationController
   end
     
   def update
-  	if params[:user][:password]=="" && params[:user][:password_confirmation]==""
-  		params[:user].delete(:password)
-  		params[:user].delete(:password_confirmation)
+		if params[:user][:password]=="" && params[:user][:password_confirmation]==""
+			params[:user].delete(:password)
+			params[:user].delete(:password_confirmation)
   	end
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated."

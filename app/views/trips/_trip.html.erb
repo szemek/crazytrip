@@ -1,14 +1,15 @@
 <li>
   <%= link_to trip.name, trip %>
-  <% if !@search && !@list %>
+  <% if @search %>
+  - trip
+  <% end %>
+  <% if current_user.admin || !@search %>
   | <%= link_to "delete", trip,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{trip.name}" %>
-  | <%= link_to "edit", edit_trip_path(trip) %>
-  <% else %>
- 	<% if !@search && !@list %>
-  - trip
   <% end %>
+  <% if !current_user.admin && !@search %>  															
+  | <%= link_to "edit", edit_trip_path(trip) %>
   <% end %>
 </li>
 

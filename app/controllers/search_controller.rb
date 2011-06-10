@@ -6,10 +6,10 @@ def index
 	@search=[]
 	if params[:search]!=""
 		if params[:users]=="1"
-			@search += User.search(params[:search])
+			@search += User.search_last_name(params[:search]).all
 		end
 		if params[:trips]=="1"
-			@search += Trip.search(params[:search])
+			@search += Trip.search_name(params[:search]).all
 		end
 		if params[:places]=="1"
 			@search += Place.search(params[:search])

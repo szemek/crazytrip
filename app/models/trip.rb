@@ -14,28 +14,21 @@
 
 class Trip < ActiveRecord::Base
 
-  attr_accessible :name, :description, :public
+  attr_accessible :name, :description
   validates :name, :presence => true
 
-  has_many :trip_points
-  accepts_nested_attributes_for :trip_points, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
-  has_many :points, :through=> :trip_points
-  has_many :votes
-  has_many :voters, :through => :votes,  :class_name => "User"
+  has_many :trip_points, :dependent => :destroy
+  has_many :points, :through => :trip_points
+  has_many :votes, :dependent => :destroy
   belongs_to :user
+  accepts_nested_attributes_for :trip_points, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
-def self.search(search)
-  if search
-    where(:public=>true).find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-  else
-    find(:all)
-  end
-end
+  scope :search_name, lambda { |name|
+    where('name LIKE ?', name)
+  }
 
-def places
-	points.each do |point|
-		Places.where(:point_id=>point.id)
-	end
-end
+  scope :public, lambda {
+    where(:public => true)
+  }
 
 end

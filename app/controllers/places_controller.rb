@@ -1,8 +1,9 @@
 class PlacesController < ApplicationController
-
-  before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
-  before_filter :correct_show_user, :only => [:show]
-  before_filter :correct_user, :only => [:edit, :update, :destroy]
+	
+	before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :correct_show, :only => [:show]
+  before_filter :correct_user, :only => [:edit, :update]
+	before_filter :correct_destroy, :only => [:destroy]
 	
   def index
   	if current_user.admin?
@@ -30,7 +31,6 @@ class PlacesController < ApplicationController
     @point = Point.new(params[:place][:point])
     @point.save
     params[:place][:point]=@point
-    @place = Place.new(params[:place])
     if !current_user.admin?
     	@place = current_user.places.build(params[:place])
     else
@@ -77,12 +77,17 @@ class PlacesController < ApplicationController
 
     def correct_user
       @user = Place.find(params[:id]).user
-      redirect_to(root_path) unless current_user==@user || current_user.admin?
+      redirect_to(root_path) unless current_user==@user || (@user==nil && current_user.admin?)
     end
     
-    def correct_show_user
+    def correct_show
     	@place = Place.find(params[:id])
     	redirect_to(root_path) unless @place.user==nil || current_user==@place.user || current_user.admin?
+  
+    def correct_destroy
+      @tplace = Place.find(params[:id])
+      redirect_to(root_path) unless current_user==@place.user || current_user.admin?
+    end
   end
-
+  
 end

@@ -10,6 +10,8 @@ Crazytrip2::Application.routes.draw do
     
   resources :sessions, :only => [:new, :create, :destroy]
   
+  resources :votes, :only => [:create, :destroy]
+  
   match '/search',  :to => 'search#index'
   
   match '/signup',  :to => 'users#new'

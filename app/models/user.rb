@@ -34,12 +34,11 @@ class User < ActiveRecord::Base
                        	:length       => {:within => 6..40 , :allow_nil => true}
 	
 	before_save :encrypt_password
+	before_destroy :delete_author_of_public_trips
 
  	has_many :trips, :dependent => :destroy
-	has_many :places
-	has_many :trip_points
-	has_many :voted_trips, :through => :votes,  :class_name => "Trip"
-	has_many :votes  
+	has_many :places, :dependent => :destroy
+	has_many :votes, :dependent => :destroy  
   
   def has_password?(submitted_password)
     password_hash == encrypt(submitted_password)
@@ -51,13 +50,9 @@ class User < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
   
-  def self.search(search)
-		if search
-		  find(:all, :conditions => ['last_name LIKE ?', "%#{search}%"])
-		else
-		  find(:all)
-		end
-  end
+  scope :search_last_name, lambda { |last_name|
+    where('last_name LIKE ?', last_name)
+  }
 
   private
 
@@ -72,4 +67,12 @@ class User < ActiveRecord::Base
 			BCrypt::Engine.hash_secret(string, password_salt)
     end
 
+    def delete_author_of_public_trips
+      trips.public.all.each { |trip|
+        trip.user=nil;
+        trip.save
+      }
+    end
+    
 end
+

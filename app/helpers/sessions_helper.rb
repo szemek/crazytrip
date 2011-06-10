@@ -64,7 +64,7 @@ module SessionsHelper
    			s="#{err} #{s} occured: "
    			object_a.each do |obj|
    				obj.errors.full_messages.each do |msg| 
-      			s="#{s} #{msg},"
+      			s="#{s} #{msg};"
       		end
       	end
       	return "#{s[0..-2]}."

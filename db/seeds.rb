@@ -1613,3 +1613,52 @@ place.minutes = 15
 place.name = 'Kładka o. Laetusa Bernatka'
 place.description = 'Kładka pieszo-rowerowa na Wiśle u wylotu ulic Mostowej i Brodzińskiego, łączy dzielnice Podgórze i Kazimierz. Nosi nazwę o. Laetusa Bernatka, przeora konwentu bonifratrów w XIX wieku.'
 place.save
+
+require 'faker'
+
+    admin=User.create!(:first_name => "Admin",
+                 :last_name => "Admin",
+                 :email => "admin@admin.com",
+                 :password => "adminadmin",
+                 :password_confirmation => "adminadmin")
+    admin.toggle!(:admin)
+    no_admin=User.create!(:first_name => "User",
+                 :last_name => "User",
+                 :email => "user@user.com",
+                 :password => "useruser",
+                 :password_confirmation => "useruser")                 
+    point=Point.create!(:x=>1, :y=>1)
+    place1=no_admin.places.build(:name=>"Mój dom", :description=>"Mój dom w Krakowie", :point=>point)
+    place1.save
+    place2=no_admin.places.build(:name=>"Dom babci", :description=>"Dom mojej babci w Krakowie", :point=>point)
+    place2.save
+    trip=no_admin.trips.build(:name=>"Moja wycieczka",:description=>"Moja prywatna wycieczka")
+    trip.points << place1.point << place2.point 
+    Place.all.first(10).each do
+      |place| trip.points << place.point
+    end
+    trip.save
+    trip2=no_admin.trips.build(:name=>"Publiczna wycieczka",:description=>"Moja publiczna wycieczka")
+    trip2.public=true
+    trip2.points << place1.point << place2.point 
+    Place.all.first(10).each do
+      |place| trip2.points << place.point 
+    end  
+    trip2.save
+    
+    100.times do |n|
+      first_name  = Faker::Name.first_name
+      last_name  = Faker::Name.last_name
+      email = "example-#{n+1}@crazytrip.org"
+      password  = "password"
+      user=User.create!(:first_name => first_name,
+                   :last_name => last_name,
+                   :email => email,
+                   :password => password,
+                   :password_confirmation => password)          
+    end
+    
+    10.times do |n|  
+      trip2.votes.build(:user=>User.find(n+1), :rating=>n, :comment=>"Comment").save
+    end  
+    
