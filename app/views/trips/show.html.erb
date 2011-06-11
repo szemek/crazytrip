@@ -1,6 +1,22 @@
-<% if @trip.public && @trip.user != nil %>
-<p>Author <%= link_to "#{@trip.user.first_name} #{@trip.user.last_name}", user_path(@trip.user) %></p>
-<% end %>
+  <% if (current_user.admin || @trip.user==current_user) %>
+  <%= link_to "delete", @trip,	:method => :delete,
+  															:confirm => "You sure?",
+  															:title => "Delete #{@trip.name}" %>
+  <% end %>
+  <% if @trip.user==current_user && !@trip.public %>  
+	<%= link_to "edit", edit_trip_path(@trip) %>
+  <% end %>
+  
+  <% if (@trip.user==current_user) %>
+    <p>This is your <%= @trip.public ? "public" : "private" %> trip.</p>  
+  <% elsif @trip.user==nil  %>
+    <p>This is public trip.</p>
+  <% else %>
+    <p>This is <%= link_to "#{@trip.user.first_name} #{@trip.user.last_name}", @trip.user %>'s <%= @trip.public ? "public" : "private" %> trip.</p>
+  <% end %>
+
+
+
 <p><%= @trip.description %></p>
 
 <% if !@trip.votes.empty? %>

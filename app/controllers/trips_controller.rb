@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-
+  include TripsHelper
   before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :correct_show, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update]
@@ -47,13 +47,24 @@ class TripsController < ApplicationController
   end
     
   def update
-    if @trip.update_attributes(params[:trip])
-      flash[:success] = "Trip updated."
-      redirect_to @trip
+    if params[:commit]=="Make public"
+      @trip.public=true
+      if @trip.save
+        flash[:success] = "Trip made public."
+        redirect_to @trip
+      else
+        @title = "Edit trip"
+        flash.now[:error] = error_message[@trip]
+      end
     else
-      @title = "Edit trip"
-      flash.now[:error] = error_message [@trip]
-      render 'edit'
+      if @trip.update_attributes(params[:trip])
+        flash[:success] = "Trip updated."
+        redirect_to @trip
+      else
+        @title = "Edit trip"
+        flash.now[:error] = error_message [@trip]
+        render 'edit'
+      end
     end
   end
 
@@ -62,22 +73,4 @@ class TripsController < ApplicationController
     flash[:success] = "Trip destroyed."
     redirect_to trips_path
   end
-  
-  private
-	
-  def correct_user
-    @trip = Trip.find(params[:id])
-    redirect_to(root_path) unless (!@trip.public && current_user==@trip.user) || (!@trip.user && current_user.admin?)
-  end
-
-  def correct_show
-    @trip = Trip.find(params[:id])
-    redirect_to(root_path) unless @trip.public || current_user==@trip.user || current_user.admin?
-  end
-  
-  def correct_destroy
-    @trip = Trip.find(params[:id])
-    redirect_to(root_path) unless current_user==@trip.user || current_user.admin?
-  end
-
 end

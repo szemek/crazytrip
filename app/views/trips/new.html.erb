@@ -1,9 +1,18 @@
 <%= form_for(@trip) do |f| %>
+<div>
   <%= render 'fields', :f => f %>
+</div>
+<div>
   <div class="big" id="map"></div>
+  <param id="zoom" value="14" />
+  
+  <div>
   <p><%= link_to_add_fields "Add point", f, :points %></p>
-  <div class="actions">
-    <%= f.submit "Add" %>
   </div>
+  <div style="clear: both;"> </div>
+</div>
+<div class="actions">
+  <%= f.submit "Add" %>
+</div>
 <% end %>
 

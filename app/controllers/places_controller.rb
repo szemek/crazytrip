@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 	
 	before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :correct_show, :only => [:show]
-  before_filter :correct_user, :only => [:edit, :update, :make_public]
+  before_filter :correct_user, :only => [:edit, :update]
 	before_filter :correct_destroy, :only => [:destroy]
 	
   def index
@@ -87,10 +87,5 @@ class PlacesController < ApplicationController
     Place.find(params[:id]).destroy
     flash[:success] = "Place destroyed."
     redirect_to places_path
-  end
-  
-  def make_public
-    Place.find(params[:id]).user=nil
-    redirect_to @place
   end
 end
