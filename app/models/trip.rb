@@ -30,5 +30,9 @@ class Trip < ActiveRecord::Base
   scope :public, lambda {
     where(:public => true)
   }
+  
+  scope :private, lambda {
+    where(:public => false)
+  }
 
 end

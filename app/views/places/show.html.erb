@@ -22,6 +22,8 @@
     <p>This is <%= link_to "#{@place.user.first_name} #{@place.user.last_name}", @place.user %>'s place.</p>
   <% end %>
   
+  <% @selection = current_user.trips.private.order("updated_at DESC").all.map { |trip| trip.name } %>
+  <%= select_tag "selection", options_for_select(@selection, @selection.first) if !@selection.empty? %>
 
 <div id="description">
 <p><%= @place.description %></p>

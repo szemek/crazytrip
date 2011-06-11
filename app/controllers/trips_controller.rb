@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :correct_show, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :correct_new, :only => [:new, :create]
 	before_filter :correct_destroy, :only => [:destroy]
   
   def index
@@ -28,13 +29,13 @@ class TripsController < ApplicationController
 
   def create
     if !current_user.admin?
-    	@trip = current_user.trips.build(params[:trip])
+      @trip = current_user.trips.build(params[:trip])
     else
         @trip = Trip.new(params[:trip])
     end
     if @trip.save
-      flash[:success] = "Trip added"
-      redirect_to @trip
+      flash[:success] = "Trip created. Now you can add points. When you finish - edit your route."
+      redirect_to :action => 'index', :controller => 'search'
     else
       @title = "Add new trip"
       flash.now[:error] = error_message [@trip]

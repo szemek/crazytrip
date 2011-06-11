@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
 	before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :correct_show, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :correct_new, :only => [:new, :create]
 	before_filter :correct_destroy, :only => [:destroy]
 	
   def index

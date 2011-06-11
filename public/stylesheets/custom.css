@@ -33,10 +33,7 @@ section h1 {
   text-align:justify;
 }
 
-#trip_description {
-  width: 90%;
-  height: 100px;
-}
+
 
 /* Map */
 #map {

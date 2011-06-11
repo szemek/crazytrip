@@ -1,4 +1,4 @@
-<p><%= link_to "Add new trip", new_trip_path %></p>
+<p><%= link_to "Add new trip", new_trip_path if !current_user.admin %></p>
 
 <%= will_paginate %>
 
