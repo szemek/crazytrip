@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
   
   scope :search_last_name, lambda { |last_name|
-    where('last_name LIKE ?', last_name)
+    where('last_name LIKE ?', '%' + last_name + '%')
   }
 
   private

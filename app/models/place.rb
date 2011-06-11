@@ -27,7 +27,7 @@ class Place < ActiveRecord::Base
   has_and_belongs_to_many :place_categories
   
   scope :search_name, lambda { |name|
-    where('name LIKE ?', name)
+    where('name LIKE ?', '%' + name + '%')
   }
 
   scope :public, lambda {

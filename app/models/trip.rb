@@ -24,7 +24,7 @@ class Trip < ActiveRecord::Base
   accepts_nested_attributes_for :trip_points, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   scope :search_name, lambda { |name|
-    where('name LIKE ?', name)
+    where('name LIKE ?', '%' + name + '%')
   }
 
   scope :public, lambda {
