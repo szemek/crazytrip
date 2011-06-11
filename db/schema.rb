@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
   add_index "places", ["user_id"], :name => "index_places_on_user_id"
 
   create_table "points", :force => true do |t|
-    t.decimal  "x",          :precision => 15, :scale => 10
-    t.decimal  "y",          :precision => 15, :scale => 10
+    t.decimal  "x",          :precision => 15, :scale => 10, :default => 19.937611
+    t.decimal  "y",          :precision => 15, :scale => 10, :default => 50.061933
     t.datetime "created_at"
     t.datetime "updated_at"
   end

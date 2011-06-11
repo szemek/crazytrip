@@ -1,18 +1,27 @@
-<% if current_user.admin || current_user == @place.user %>
-  <%= link_to "delete", @place, :method => :delete,
-                                :confirm => "You sure?",
-                                :title => "Delete #{@place.name}" %>
-  <% end %>
-  <% if current_user == @place.user %>  
-	<%= link_to "edit", edit_place_path(@place) %>
-  <% end %>
-
 <div class="small" id="map"></div>
 <!-- Map params -->
 <param id="longitude" value="<%= @place.point.x %>"/>
 <param id="latitude" value="<%= @place.point.y %>"/>
 <param id="zoom" value="14" />
 <param id="listener" value="off" />
+
+  <% if (current_user.admin || @place.user==current_user) %>
+  <%= link_to "delete", @place,	:method => :delete,
+  															:confirm => "You sure?",
+  															:title => "Delete #{@place.name}" %>
+  <% end %>
+  <% if @place.user==current_user %>  
+	<%= link_to "edit", edit_place_path(@place) %>
+  <% end %>
+  
+  <% if (@place.user==current_user) %>
+    <p>This is your private place.</p>  
+  <% elsif @place.user==nil  %>
+    <p>This is public place.</p>
+  <% else %>
+    <p>This is <%= link_to "#{@place.user.first_name} #{@place.user.last_name}", @place.user %>'s place.</p>
+  <% end %>
+  
 
 <div id="description">
 <p><%= @place.description %></p>

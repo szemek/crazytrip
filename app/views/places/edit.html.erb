@@ -9,6 +9,11 @@
 <param id="disableDefaultUI" />
 <param id="draggable" />
 
+  <p>This is your private place. <%= f.submit "Make public",
+  															:confirm => "You sure? This is irreversible operation.",
+  															:title => "Make #{@place.name} public" %> </p>  
+
+
   <%= render 'fields', :f => f %>
   <div class="actions">
     <%= f.submit "Save" %>

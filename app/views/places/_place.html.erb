@@ -8,7 +8,7 @@
   															:confirm => "You sure?",
   															:title => "Delete #{place.name}" %>
   <% end %>
-  <% if !current_user.admin && !@search %>  
+  <% if place.user==current_user && !@search %>  
 	| <%= link_to "edit", edit_place_path(place) %>
   <% end %>
 </li>
