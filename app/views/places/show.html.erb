@@ -24,9 +24,16 @@
 	<%= link_to "edit", edit_place_path(@place) %>
   <% end %>
   
-  <% if current_user %> 
-  <% @selection = current_user.trips.private.order("updated_at DESC").all.map { |trip| trip.name } %>
-  <%= select_tag "selection", options_for_select(@selection, @selection.first) if !@selection.empty? %>
+  <% if current_user %>
+    <% form_for @trip_point do |f| %>
+    <% @selection = current_user.trips.private.order("updated_at DESC").all %>
+    
+    <%= select_tag "selection", options_from_collection_for_select(@selection, "id", "name") if !@selection.empty? %>
+    <%= hidden_field_tag :place_id, @place.id %>
+    <div class="actions">
+      <%= f.submit "Save" %>
+    </div>
+    <% end %>
   <% end %>  
   
 <p id="description"><%= @place.description %></p>

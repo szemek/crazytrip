@@ -19,6 +19,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @trip_point = TripPoint.new
     @title = @place.name
     @photos_list = @place.photos.all
     @trips_list = @place.point.trips.public.all

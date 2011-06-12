@@ -15,6 +15,7 @@ Crazytrip2::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   
   resources :votes, :only => [:create, :destroy]
+  resources :trip_points, :only => [:create, :destroy]
   
   match '/search',  :to => 'search#index'
   

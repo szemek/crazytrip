@@ -7,7 +7,7 @@ module VotesHelper
 
   def correct_destroy
     @vote = Vote.find(params[:id])
-    redirect_to(root_path) unless current_user==@vote.user || current_user.admin?
+    redirect_to(root_path) unless current_user==@vote.user || current_user.admin
   end
 
 end

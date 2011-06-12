@@ -2,7 +2,8 @@ class PhotosController < ApplicationController
   include PhotosHelper
   
   before_filter :authenticate, :only => [:new, :create, :destroy]
-  before_filter :correct_user, :only => [:new, :create, :destroy]
+  before_filter :correct_create, :only => [:new, :create]
+  before_filter :correct_destroy, :only => [:destroy]
   
   caches_page :show
   
