@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = "#{@user.first_name} #{@user.last_name}"
-    @list=@user.trips.where(:public=>true).paginate(:page => params[:page])
+    @trip_list=@user.trips.where(:public=>true)
   end
     
   def new

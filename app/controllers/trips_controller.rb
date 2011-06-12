@@ -28,7 +28,7 @@ class TripsController < ApplicationController
     end
     @votes=@votes.all
     @votes.delete(@vote)
-    @votes = @votes.paginate(:page => params[:page])
+    @votes = @votes.paginate(:page => params[:page],:per_page => 10)
   end
     
   def new

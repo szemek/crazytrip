@@ -1613,52 +1613,128 @@ place.minutes = 15
 place.name = 'Kładka o. Laetusa Bernatka'
 place.description = 'Kładka pieszo-rowerowa na Wiśle u wylotu ulic Mostowej i Brodzińskiego, łączy dzielnice Podgórze i Kazimierz. Nosi nazwę o. Laetusa Bernatka, przeora konwentu bonifratrów w XIX wieku.'
 place.save
+  
+content_type = 'image/jpeg'  
+
+Place.all.each do |place|
+  rand(5).times do |m|
+    n=rand(10)
+    file = File.new("db/photo#{n}.jpg")
+    photo = place.photos.build
+    photo.data = file.read
+    photo.file_type = content_type
+    photo.save 
+  end
+end
 
 require 'faker'
 
-    admin=User.create!(:first_name => "Admin",
-                 :last_name => "Admin",
-                 :email => "admin@admin.com",
-                 :password => "adminadmin",
-                 :password_confirmation => "adminadmin")
-    admin.toggle!(:admin)
-    no_admin=User.create!(:first_name => "User",
-                 :last_name => "User",
-                 :email => "user@user.com",
-                 :password => "useruser",
-                 :password_confirmation => "useruser")                 
-    point=Point.create!(:x=>1, :y=>1)
-    place1=no_admin.places.build(:name=>"Mój dom", :description=>"Mój dom w Krakowie", :point=>point)
-    place1.save
-    place2=no_admin.places.build(:name=>"Dom babci", :description=>"Dom mojej babci w Krakowie", :point=>point)
-    place2.save
-    trip=no_admin.trips.build(:name=>"Moja wycieczka",:description=>"Moja prywatna wycieczka")
-    trip.points << place1.point << place2.point 
-    Place.all.first(10).each do
-      |place| trip.points << place.point
+admin=User.create!(:first_name => "Admin",
+             :last_name => "Admin",
+             :email => "admin@admin.com",
+             :password => "adminadmin",
+             :password_confirmation => "adminadmin")
+admin.toggle!(:admin)
+user=User.create!(:first_name => "User",
+             :last_name => "User",
+             :email => "user@user.com",
+             :password => "useruser",
+             :password_confirmation => "useruser") 
+                
+trip = user.trips.build
+trip.name = "Krakowskie kościoły"
+trip.description = '
+W wydanej w 2000 r. "Encyklopedii Krakowa" opis 120 istniejących kościołów krakowskich zajmuje 34 strony. Opis 25 nieistniejących (na niniejszej stronie wymieniam ich więcej) - niecałe dwie strony. A temat to przecież fascynujący... W Krakowie, dawnej stolicy państwa polskiego, na stosunkowo niewielkim terenie powstawały dziesiątki kościołów. Kościoły parafialne i klasztorne, kaplice szpitalne i cmentarne... Gdy miasto straciło na znaczeniu, zubożało, przetoczyły się przezeń wojny (potop szwedzki, III wojna północna, konfederacja barska) i zarazy (największe: 1651-52, 1677-80, 1707-08), utrzymanie takiej ilości świątyń stało się niemożliwe. W 1772 r. pierwszy rozbiór Polski przeciął biskupstwo krakowskie, odcinając zarazem je od sporej części dochodów - nowa granica przecięła też dotychczasowe kontakty handlowe powodując ubożenie społeczeństwa. Doszły do tego przemiany obyczajowo-polityczne (reformy oświeceniowe - w Polsce stanisławowskiej i Austrii pojózefińskiej), a później prace modernizacyjne w mieście - w efekcie te świątynie, które były najbardziej zniszczone, najmniej potrzebne, czy czasem po prostu zawadzające, były likwidowane. Sprzedawane, rozbierane, przerabiane na domy czy teatry... Zlikwidowano też cmentarze parafialne w centrum miasta. Zdobywano w ten sposób miejsce na nowe budynki i place, a także budulec na nie; usuwano zaś z miasta bezwartościowe - zgodnie z logiką tamtych czasów - ruiny. Działo się to na przełomie XVIII i XIX stulecia, zapoczątkował ten proces prymas Michał Poniatowski (starając się uporządkować polski Kościół kasował klasztory, głównie o kiepskiej sytuacji finansowej), kontynuowali go zaborcy i władze miejskie (działający na rzecz uporządkowania miasta). Jedynie wielkim wysiłkiem osób, które nie godziły się z taką polityką uratowano przed wyburzeniem w pierwszej połowie XIX w. piękny kościół św. Katarzyny na Kazimierzu czy kościółek św. Idziego pod Wawelem. Jednak wiele z prezentowanych tu kościołów przestało istnieć również w innych okresach i okolicznościach - czy to przez pożary, czy osunięcia ziemi, czy - jak na Wawelu - budowę nowych fortyfikacji, jeszcze w średniowieczu...
+
+O przepełnieniu miasta świątyniami w momencie jego kryzysu w końcu XVIII w. świadczy choćby relacja Johanna Friedricha Zöllnera - w 1791 r. tak pisał o Krakowie: "W całym mieście jest nie więcej jak 1000-1100 domów, zresztą biorąc pod uwagę obszar, jaki ono zajmuje, liczba ich nie może być wyższa. Tym bardziej uderzające jest, gdy się słyszy, że znajdują się tu 72 kościoły i 30 klasztorów." Józef Wawel Louis, badacz dziejów Krakowa, w drugiej połowie XIX w. tak opisywał upadek miasta doby rozbiorów: "(...) na podciętej'
+
+Place.public.search_name("Kościół").search_name("M").all.each do |place|
+  rand(7).times do |n|
+    file = File.new("db/kosciol#{n}.jpg")
+    photo = place.photos.build
+    photo.data = file.read
+    photo.file_type = content_type
+    photo.save
+  end
+  trip.points << place.point
+end  
+trip.public=true  
+trip.save         
+             
+100.times do |n|
+  first_name  = Faker::Name.first_name
+  last_name  = Faker::Name.last_name
+  email = "user#{n+1}@user.com"
+  user=User.create!(:first_name => first_name,
+               :last_name => last_name,
+               :email => email,
+               :password => "password",
+               :password_confirmation => "password")          
+end
+
+User.all.each do |user|
+  if !user.admin
+    rand(2).times do |n|
+      point = Point.create!
+      point.x += (rand(11)-5)*0.1/10.0
+      point.y += (rand(11)-5)*0.04/10.0
+      place = user.places.build
+      place.point = point
+      place.name = Faker::Lorem.sentence
+      place.description = Faker::Lorem.paragraph
+      place.save
+      rand(3).times do |n|
+        file = File.new("db/dom#{n}.jpg")
+        photo = place.photos.build
+        photo.data = file.read
+        photo.file_type = content_type
+        photo.save 
+      end
     end
-    trip.save
-    trip2=no_admin.trips.build(:name=>"Publiczna wycieczka",:description=>"Moja publiczna wycieczka")
-    trip2.public=true
-    trip2.points << place1.point << place2.point 
-    Place.all.first(10).each do
-      |place| trip2.points << place.point 
-    end  
-    trip2.save
-    
-    100.times do |n|
-      first_name  = Faker::Name.first_name
-      last_name  = Faker::Name.last_name
-      email = "example-#{n+1}@crazytrip.org"
-      password  = "password"
-      user=User.create!(:first_name => first_name,
-                   :last_name => last_name,
-                   :email => email,
-                   :password => password,
-                   :password_confirmation => password)          
+
+    rand(2).times do |n|      
+      trip = user.trips.build
+      trip.name = Faker::Lorem.sentence
+      trip.description = Faker::Lorem.paragraph  
+      Place.public.search_name(('a'.ord + rand('z'.ord - 'a'.ord)).chr).all.each do |place|
+        trip.points << place.point
+      end  
+      trip.public=true  
+      trip.save
     end
     
-    10.times do |n|  
-      trip2.votes.build(:user=>User.find(n+1), :rating=>n, :comment=>"Comment").save
+    rand(2).times do |n|      
+      trip = user.trips.build
+      trip.name = Faker::Lorem.sentence
+      trip.description = Faker::Lorem.paragraph
+      Place.public.search_name(('a'.ord + rand('z'.ord - 'a'.ord)).chr).all.each do |place|
+        trip.points << place.point
+      end  
+      user.places.each do |place|
+        trip.points << place.point
+      end 
+      trip.save   
+    end
+  end
+end
+
+trips=Trip.public.all
+User.all.each do |user|
+  if !user.admin
+    trips.each do |trip|
+      if trip.user!=user
+        n = rand(5)
+        if n = 0
+          vote = trip.votes.build
+          vote.user = user
+          vote.rating = rand(11) 
+          vote.comment = Faker::Lorem.sentence
+          vote.save
+        end
+      end
     end  
+  end
+end 
+
+                 
     

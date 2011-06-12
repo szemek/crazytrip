@@ -23,16 +23,17 @@
   <% if @place.user==current_user %>  
 	<%= link_to "edit", edit_place_path(@place) %>
   <% end %>
-  
+
   <% if current_user %>
-    <% form_for @trip_point do |f| %>
     <% @selection = current_user.trips.private.order("updated_at DESC").all %>
-    
-    <%= select_tag "selection", options_from_collection_for_select(@selection, "id", "name") if !@selection.empty? %>
-    <%= hidden_field_tag :place_id, @place.id %>
-    <div class="actions">
-      <%= f.submit "Save" %>
-    </div>
+    <% if  !@selection.empty? %>
+      <% form_for @trip_point do |f| %>
+      <%= select_tag "selection", options_from_collection_for_select(@selection, "id", "name") %>
+      <%= hidden_field_tag :place_id, @place.id %>
+      <div class="actions">
+        <%= f.submit "Save" %>
+      </div>
+      <% end %>
     <% end %>
   <% end %>  
   
@@ -52,13 +53,18 @@ Latitude <%= @place.point.y.round(3) %></p>
 </ul>
 <%end%>
 
+
+
 <% if @trips_list.count!=0 %>
 <h3>Trips with this point</h3>
 <ul class="list">
-  <%= render @trips_list %>
+  <%= will_paginate @trips_list %>
+  <ul class="list">
+    <%= render @trips_list%>
+  </ul>
+  <%= will_paginate @trips_list%>
 </ul>
 <%end%>
 
 </div>
-
 <div class="clear"> </div>
