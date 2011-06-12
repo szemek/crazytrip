@@ -1,5 +1,7 @@
 <li>
-  <p><%= vote.user.first_name %></p>
-  <p><%= vote.rating %></p>
-  <p><%= vote.comment %>t</p>
+  <%= link_to "#{vote.user.first_name} #{vote.user.last_name}", vote.user %>'s comment:
+  <p><%= vote.comment %>
+  <br />
+  Rating: <%= vote.rating %>
+  </p>
 </li>

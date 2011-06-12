@@ -1,8 +1,8 @@
 <%= form_for(@trip) do |f| %>
-<div>
+<div class="content">
   <%= render 'fields', :f => f %>
 </div>
-<div class="actions">
+<div class="actions clear" >
   <%= f.submit "Add" %>
 </div>
 <% end %>

@@ -19,7 +19,16 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @title = @trip.name
-    @votes = @trip.votes.paginate(:page => params[:page])
+    @votes = @trip.votes
+    if current_user
+      @vote=@votes.where(:user_id=>current_user.id).first
+      if !@vote
+        @vote=Vote.new
+      end
+    end
+    @votes=@votes.all
+    @votes.delete(@vote)
+    @votes = @votes.paginate(:page => params[:page])
   end
     
   def new

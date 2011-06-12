@@ -34,5 +34,9 @@ class Trip < ActiveRecord::Base
   scope :private, lambda {
     where(:public => false)
   }
+  
+  def rating
+    votes.all.collect(&:rating).sum.to_f/votes.all.length if votes.all.length > 0
+  end
 
 end

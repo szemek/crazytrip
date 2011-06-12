@@ -3,7 +3,7 @@
   <% if @search %>
   - trip
   <% end %>
-  <% if (current_user.admin || !@search) && !@trips_list %>
+  <% if ((current_user && current_user.admin) || !@search) && !@trips_list %>
   | <%= link_to "delete", trip,	:method => :delete,
   															:confirm => "You sure?",
   															:title => "Delete #{trip.name}" %>

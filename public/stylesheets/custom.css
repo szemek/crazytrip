@@ -3,9 +3,6 @@
   clear: both;
 }
 
-#content {
-}
-
 body {
   background: #dff;
 }
@@ -33,12 +30,9 @@ section h1 {
   text-align:justify;
 }
 
-
-
 /* Map */
 #map {
   float: right;
-  display: block;
   margin-left: 15px;
 }
 
@@ -50,6 +44,14 @@ section h1 {
 .small {
   height: 300px;
   width: 350px;
+}
+
+.content {
+
+}
+
+.clear{
+  clear:both;
 }
 
 /* Links */

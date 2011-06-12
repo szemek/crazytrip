@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @title = @place.name
     @trips_list = @place.point.trips.public.all
-    @trips_list += @place.point.trips.where(:user_id => current_user.id).all
+    @trips_list += @place.point.trips.where(:user_id => current_user.id).all if current_user
     @trips_list = @trips_list.uniq.paginate(:page => params[:page])
   end
     

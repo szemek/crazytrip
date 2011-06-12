@@ -5,12 +5,13 @@
 <param id="longitude" value="<%= @point.x %>"/>
 <param id="latitude" value="<%= @point.y %>"/>
 <param id="zoom" value="14" />
-<param id="disableDefaultUI" />
 <param id="draggable" />
 <param id="addNewPlace" />
 
+  <div class="content">
   <%= render 'fields', :f => f %>
-  <div class="actions">
+  </div>
+  <div class="actions clear">
     <%= f.submit "Add" %>
   </div>
 <% end %>

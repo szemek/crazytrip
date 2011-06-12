@@ -1,0 +1,15 @@
+kopiowanie wycieczek innych użytkowników
+pomysły:
+- wykorzystanie bazy danych
+- folder na zapis plików
+- zewnętrzny serwer na pliki
+dodawanie miejsca do wycieczki
+edycja trasy wycieczki
+przy make public - sprawdzić czy wycieczka nie zawiera miejsc prywatnych
+widoki - dodawanie komentarzy + ocena, "w górnej części strony znajduje się opis na dole wyświetlane są komentarze z przewijaniem
+pole na stronie pojawia się, gdy nie ma komentarza
+dopisać testy RSpec
+poprawa show dla użytkownika i dla wycieczki
+depend-destroy - test
+seed
+

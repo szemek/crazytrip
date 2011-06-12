@@ -1,12 +1,13 @@
 <%= form_for(@trip) do |f| %>
 
-
+  <div class="content">
   <p>This is your private trip. <%= f.submit "Make public",
   															:confirm => "You sure? This is irreversible operation.",
   															:title => "Make #{@trip.name} public" %> </p>  
 
   <%= render 'fields', :f => f %>
-  <div class="actions">
+  </div>
+  <div class="actions clear">
     <%= f.submit "Save" %>
   </div>
 <% end %>
