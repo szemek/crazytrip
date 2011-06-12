@@ -1,3 +1,5 @@
+<div id="map" class="big"></div>
+
 <div class="content">
   <% if ((current_user && current_user.admin) || @trip.user==current_user) %>
   <%= link_to "delete", @trip,	:method => :delete,
@@ -16,6 +18,11 @@
   <% end %>
 
 <p id="description"><%= @trip.description %></p>
+
+<h3>Places in trip</h3>
+<ul class="list">
+  <%= render @trip.points.map{ |point| point.place} %>
+</ul>
 
 <% if !@trip.votes.empty? %>
   <h3>Trip's votes(<%= @trip.votes.count %>) - Average rating: <%= @trip.rating %></h3>
