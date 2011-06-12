@@ -1,7 +1,7 @@
 # == Schema Information
 # Schema version: 20110508231655
 #
-# Table name: medium_categories
+# Table name: Photo_categories
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
@@ -9,7 +9,7 @@
 #  updated_at :datetime
 #
 
-class MediumCategory < ActiveRecord::Base
+class PhotoCategory < ActiveRecord::Base
   validates_presence_of :name
-  has_many :mediums
+  has_many :photos
 end

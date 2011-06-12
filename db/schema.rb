@@ -12,23 +12,23 @@
 
 ActiveRecord::Schema.define(:version => 20110508231655) do
 
-  create_table "media", :force => true do |t|
-    t.binary   "data"
-    t.integer  "medium_category_id"
-    t.integer  "place_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "media", ["medium_category_id"], :name => "index_media_on_medium_category_id"
-
-  create_table "medium_categories", :force => true do |t|
+  create_table "photo_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "medium_categories", ["name"], :name => "index_medium_categories_on_name"
+  add_index "photo_categories", ["name"], :name => "index_photo_categories_on_name"
+
+  create_table "photos", :force => true do |t|
+    t.binary   "data"
+    t.integer  "photo_category_id"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["photo_category_id"], :name => "index_photos_on_photo_category_id"
 
   create_table "place_categories", :force => true do |t|
     t.string   "name"
@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.integer  "user_id"
     t.integer  "rating"
     t.string   "comment"
-    t.boolean  "favorite",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

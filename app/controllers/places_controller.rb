@@ -28,7 +28,7 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
     @point = Point.new
-    @medium = Medium.new
+    @Photo = Photo.new
     @title = "Add place"
   end
 
