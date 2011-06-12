@@ -1,0 +1,9 @@
+<%= form_for [@place, @photo], :html => {:multipart => true} do |f| %>
+
+<div>Image Upload:</div><div><%= f.file_field("tmp_file") %></div>
+
+<%= hidden_field_tag :place_id, @place.id %>
+
+<div class="actions"><%= f.submit "Upload" %></div>
+
+<% end %>

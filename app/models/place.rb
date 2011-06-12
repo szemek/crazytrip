@@ -23,7 +23,7 @@ class Place < ActiveRecord::Base
 
   belongs_to :point, :dependent => :destroy
   belongs_to :user
-  has_many :Photos
+  has_many :photos, :dependent => :destroy
   has_and_belongs_to_many :place_categories
   
   scope :search_name, lambda { |name|

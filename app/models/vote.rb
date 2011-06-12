@@ -8,7 +8,6 @@
 #  user_id    :integer
 #  rating     :integer
 #  comment    :string(255)
-#  favorite   :boolean
 #  created_at :datetime
 #  updated_at :datetime
 #

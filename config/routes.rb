@@ -1,13 +1,17 @@
 Crazytrip2::Application.routes.draw do
 
-	root :to => 'pages#home'
+  root :to => 'pages#home'
 
   match '/about',   :to => 'pages#about'
 
-	resources :users, :trips, :places
+  resources :users, :trips
+  
+  resources :places do
+    resources :photos
+  end
 
   match '/signup',  :to => 'users#new'
-    
+  
   resources :sessions, :only => [:new, :create, :destroy]
   
   resources :votes, :only => [:create, :destroy]

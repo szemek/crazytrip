@@ -34,13 +34,22 @@
 Latitude <%= @place.point.y.round(3) %></p>
 <p>Approximate visit time <%= @place.minutes %> minutes</p>
 
+<% if @place.user==current_user %>  
+<p><%= link_to "Add photo", new_place_photo_path(@place) %></p>
+<% end %>
+
+<% if @photos_list.count!=0 %>
+<h3>Photos of this point</h3>
+<ul class="list">
+  <%= render @photos_list %>
+</ul>
+<%end%>
+
 <% if @trips_list.count!=0 %>
 <h3>Trips with this point</h3>
-<%= will_paginate @trips_list %>
 <ul class="list">
   <%= render @trips_list %>
 </ul>
-<%= will_paginate @trips_list %>
 <%end%>
 
 </div>

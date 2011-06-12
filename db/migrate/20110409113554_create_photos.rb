@@ -2,11 +2,11 @@ class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
       t.binary "data"
-      t.references :photo_category
+      t.string "file_type"
       t.references :place
       t.timestamps
     end
-    add_index :photos, [:photo_category_id]
+    add_index :photos, [:place_id]
   end
 
   def self.down

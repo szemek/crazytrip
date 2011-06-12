@@ -4,8 +4,8 @@
 # Table name: points
 #
 #  id         :integer         not null, primary key
-#  x          :decimal(15, 10)
-#  y          :decimal(15, 10)
+#  x          :decimal(15, 10) default(19.937611)
+#  y          :decimal(15, 10) default(50.061933)
 #  created_at :datetime
 #  updated_at :datetime
 #

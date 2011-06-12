@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @title = @place.name
+    @photos_list = @place.photos.all
     @trips_list = @place.point.trips.public.all
     @trips_list += @place.point.trips.where(:user_id => current_user.id).all if current_user
     @trips_list = @trips_list.uniq.paginate(:page => params[:page])
@@ -89,4 +90,5 @@ class PlacesController < ApplicationController
     flash[:success] = "Place destroyed."
     redirect_to places_path
   end
+  
 end

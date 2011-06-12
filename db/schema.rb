@@ -12,23 +12,15 @@
 
 ActiveRecord::Schema.define(:version => 20110508231655) do
 
-  create_table "photo_categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "photo_categories", ["name"], :name => "index_photo_categories_on_name"
-
   create_table "photos", :force => true do |t|
     t.binary   "data"
-    t.integer  "photo_category_id"
+    t.string   "file_type"
     t.integer  "place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "photos", ["photo_category_id"], :name => "index_photos_on_photo_category_id"
+  add_index "photos", ["place_id"], :name => "index_photos_on_place_id"
 
   create_table "place_categories", :force => true do |t|
     t.string   "name"
