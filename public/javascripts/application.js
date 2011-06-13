@@ -1,25 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-var markers = new Array();
-
-function remove_fields(link) {
-//  alert($(link).up(".fields"));
-  $(link).previous("input[type=hidden]").value = "1";
-  $(link).up(".fields").hide();
-}
-
-function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).up().insert({
-    before: content.replace(regexp, new_id)
-  });
-}
-
-function addPoint(x, y){
-            add_fields(document.getElementById('link'), "points", "<div class=\"fields\">\n  <p>\n  <label for=\"trip_points_x\">x<\/label><br />\n  <input id=\"trip_points_x\" value=\"" + x + "\" name=\"trip[points][x]\" size=\"30\" type=\"text\" /><br />\n  <label for=\"trip_points_y\">y<\/label><br />\n  <input id=\"trip_points_y\" value=\"" + y + "\" name=\"trip[points][y]\" size=\"30\" type=\"text\" /><br />\n  <input id=\"trip_points__destroy\" name=\"trip[points][_destroy]\" type=\"hidden\" value=\"false\" /><a href=\"#\" onclick=\"remove_fields(this); return false;\">remove<\/a>\n  <\/p>\n<\/div>\n"); return false;
-        }
+markers = new Array();
 
 function placeMarker(map, location) {
 	var marker = new google.maps.Marker({
@@ -92,19 +74,32 @@ function setMapOptions(map){
 			}
 		});
     }
+    
+    places = $('#places')[0];
+    if(places != null){
+        places = $('.place');
+        for (var i = 0; i < places.length; i++){
+            var params = places[i].value.split("|");
+            var myLatlng = new google.maps.LatLng(params[0],params[1]);
+            
+            marker = placeMarker(map, myLatlng);
+            marker.setDraggable(false);
+            marker.setTitle(params[2] + "\n\n" + params[3]);
+        }
+    }
 }
 
 function init() {
-	var mapDiv = $('#map')[0];
-	var options = {
-		center: new google.maps.LatLng(50.061933, 19.937611),
-		zoom: 10,
-		disableDefaultUI: false,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		mapTypeControl: true
-	};
-	var map = new google.maps.Map(mapDiv, options);
-	setMapOptions(map);
+    var mapDiv = $('#map')[0];
+        var options = {
+        center: new google.maps.LatLng(50.061933, 19.937611),
+        zoom: 10,
+        disableDefaultUI: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: true
+    };
+    map = new google.maps.Map(mapDiv, options);
+    setMapOptions(map);
 }
 
 window.onload = init;

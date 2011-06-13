@@ -18,6 +18,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @trip_points = @trip.points
     @title = @trip.name
     @votes = @trip.votes
     if current_user

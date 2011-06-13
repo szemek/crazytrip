@@ -19,9 +19,16 @@
 
 <p id="description"><%= @trip.description %></p>
 
+<param id="places"/>
+
 <h3>Places in trip</h3>
 <ul class="list">
-  <%= render @trip.points.map{ |point| point.place} %>
+  <% @trip_points.each do |point| %>
+    <li>
+      <%= link_to point.place.name, point.place %>
+      <param class="place" value="<%= point.y %>|<%= point.x %>|<%= point.place.name %>|<%= point.place.description %>" />
+    </li>
+  <% end %>
 </ul>
 
 <% if !@trip.votes.empty? %>
