@@ -23,6 +23,7 @@
 
 <% if !@places.empty? %>
 <h3>Places in trip</h3>
+<em>(drag places to change order)</em>
   <%= form_for(@trip) do |f| %>
   <ul id="sortable" class="list">
     <% @places.each do |place| %>

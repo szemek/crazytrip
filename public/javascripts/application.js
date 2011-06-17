@@ -89,6 +89,11 @@ function setMapOptions(map){
             marker = placeMarker(map, myLatlng);
             marker.setDraggable(false);
             marker.setTitle(params[2] + "\n\n" + params[3]);
+            number = i+1;
+            if(i<10){
+                number = "0" + number;
+            }
+            marker.setIcon(new google.maps.MarkerImage("http://google-maps-icons.googlecode.com/files/green" + number +".png"));
         }
     }
 }
