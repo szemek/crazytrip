@@ -5,7 +5,7 @@
 #
 #  id         :integer         not null, primary key
 #  data       :binary
-#  type       :string(255)
+#  file_type  :string(255)
 #  place_id   :integer
 #  created_at :datetime
 #  updated_at :datetime

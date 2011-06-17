@@ -21,15 +21,23 @@
 
 <param id="places"/>
 
+<% if !@places.empty? %>
 <h3>Places in trip</h3>
-<ul class="list">
-  <% @trip_points.each do |point| %>
-    <li>
-      <%= link_to point.place.name, point.place %>
-      <param class="place" value="<%= point.y %>|<%= point.x %>|<%= point.place.name %>|<%= point.place.description %>" />
-    </li>
+  <%= form_for(@trip) do |f| %>
+  <ul id="sortable" class="list">
+    <% @places.each do |place| %>
+      <li>
+        <%= link_to place.name, place %>
+        <%= hidden_field_tag "ordered_places[#{place.id}]"%>
+        <param class="place" value="<%= place.lat %>|<%= place.lng %>|<%= place.name %>|<%= place.description %>" />
+      </li>
+    <% end %>
+  </ul>
+    <div class="actions clear">
+      <%= f.submit "Save order" %>
+    </div>
   <% end %>
-</ul>
+<% end %>
 
 <% if !@trip.votes.empty? %>
   <h3>Trip's votes(<%= @trip.votes.count %>) - Average rating: <%= @trip.rating %></h3>

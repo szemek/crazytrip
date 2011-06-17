@@ -51,13 +51,13 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
   add_index "places", ["user_id"], :name => "index_places_on_user_id"
 
   create_table "points", :force => true do |t|
-    t.decimal  "x",          :precision => 15, :scale => 10, :default => 19.937611
-    t.decimal  "y",          :precision => 15, :scale => 10, :default => 50.061933
+    t.decimal  "lat",        :precision => 15, :scale => 10, :default => 50.061933
+    t.decimal  "lng",        :precision => 15, :scale => 10, :default => 19.937611
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "points", ["x", "y"], :name => "index_points_on_x_and_y"
+  add_index "points", ["lat", "lng"], :name => "index_points_on_lat_and_lng"
 
   create_table "trip_points", :force => true do |t|
     t.integer  "trip_id"

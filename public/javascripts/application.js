@@ -1,6 +1,10 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+  $(document).ready(function() {
+    $("#sortable").sortable();
+  });
+
 markers = new Array();
 
 function placeMarker(map, location) {
@@ -33,10 +37,10 @@ function setMapOptions(map){
 			// Set listener on dragend
 			google.maps.event.addListener(marker, 'dragend', function(event) {
 				position = marker.getPosition();
-				y = position.toString().replace("(","").split(", ")[0];
-				x = position.toString().replace(")","").split(", ")[1];
-				$('#place_point_y')[0].value = y;
-				$('#place_point_x')[0].value = x;
+				lat = position.toString().replace("(","").split(", ")[0];
+				lng = position.toString().replace(")","").split(", ")[1];
+				$('#place_point_lat')[0].value = lat;
+				$('#place_point_lng')[0].value = lng;
 			});
 		}
 	}
@@ -58,18 +62,18 @@ function setMapOptions(map){
 			// Limit to only 1 marker
 			if(markers.length == 0){
 				marker = placeMarker(map, position);
-				y = position.toString().replace("(","").split(", ")[0];
-				x = position.toString().replace(")","").split(", ")[1];
-				$('#place_point_y')[0].value = y;
-				$('#place_point_x')[0].value = x;
+				lat = position.toString().replace("(","").split(", ")[0];
+				lng = position.toString().replace(")","").split(", ")[1];
+				$('#place_point_lat')[0].value = lat;
+				$('#place_point_lng')[0].value = lng;
 				
 				// Set listener on dragend
 				google.maps.event.addListener(marker, 'dragend', function(event) {
 					position = marker.getPosition();
-					y = position.toString().replace("(","").split(", ")[0];
-					x = position.toString().replace(")","").split(", ")[1];
-					$('#place_point_y')[0].value = y;
-					$('#place_point_x')[0].value = x;
+					lat = position.toString().replace("(","").split(", ")[0];
+					lng = position.toString().replace(")","").split(", ")[1];
+					$('#place_point_lat')[0].value = lat;
+					$('#place_point_lng')[0].value = lng;
 				});
 			}
 		});

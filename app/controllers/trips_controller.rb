@@ -18,7 +18,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @trip_points = @trip.points
+    @places = Place.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "points".id = "trip_points".point_id WHERE (("trip_points".trip_id = ?)) ORDER BY "trip_points"."order"', @trip.id]
     @title = @trip.name
     @votes = @trip.votes
     if current_user
@@ -56,7 +56,7 @@ class TripsController < ApplicationController
   def edit
     @title = "Edit trip"
   end
-    
+
   def update
     if params[:commit]=="Make public"
       @trip.public=true
@@ -69,6 +69,12 @@ class TripsController < ApplicationController
       end
     else
       if @trip.update_attributes(params[:trip])
+        keys = params[:ordered_places].keys
+        for i in 0..keys.length-1 do
+          @trip_point = TripPoint.find(keys[i])
+          @trip_point.order = i
+          @trip_point.save
+        end
         flash[:success] = "Trip updated."
         redirect_to @trip
       else
