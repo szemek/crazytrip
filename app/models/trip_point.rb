@@ -14,7 +14,7 @@
 
 class TripPoint < ActiveRecord::Base
 
-    attr_accessible :date, :order, :trip_id
+    attr_accessible :date, :order, :trip_id, :point_id
 
 		validates :trip_id, :uniqueness=>{ :scope=> :point_id}
 		validates_presence_of :point_id
