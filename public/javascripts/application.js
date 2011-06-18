@@ -121,7 +121,6 @@ function calcRoute() {
             stopover:true
         });
     }
-    alert(waypts);
         var request = {
           origin: markers[0].position,
           destination: markers[markers.length-1].position,
