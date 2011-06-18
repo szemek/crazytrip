@@ -22,6 +22,7 @@ Crazytrip2::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/trips/:id/guide', :to => 'trips#guide'
   
   match "*path" => redirect('/')
 end

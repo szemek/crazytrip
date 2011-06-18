@@ -19,6 +19,8 @@
 
 <p id="description"><%= @trip.description %></p>
 
+<h3><%= link_to "Guide", :controller => "trips", :action => "guide", :id => @trip %></h3>
+
 <param id="places"/>
 
 <% if !@places.empty? %>

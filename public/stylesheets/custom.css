@@ -30,6 +30,16 @@ section h1 {
   text-align:justify;
 }
 
+#directions {
+  float: left;
+  width:30%;
+  text-align:justify;
+}
+
+.adp-warnbox {
+  display:none;
+}
+
 /* Map */
 #map {
   float: right;

@@ -1,9 +1,9 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-  $(document).ready(function() {
+$(document).ready(function() {
     $("#sortable").sortable();
-  });
+});
 
 markers = new Array();
 
@@ -97,6 +97,53 @@ function setMapOptions(map){
         }
     }
 }
+function guideInit(){
+    rendererOptions = {
+        draggable: true,
+        suppressMarkers: true
+    };
+    directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById("directions"));
+    
+    google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+        computeTotalDistance(directionsDisplay.directions);
+    });
+    calcRoute();
+}
+
+function calcRoute() {
+    var waypts = [];
+    for (var i = 1; i < markers.length - 1; i++) {
+        waypts.push({
+            location:markers[i].position,
+            stopover:true
+        });
+    }
+    alert(waypts);
+        var request = {
+          origin: markers[0].position,
+          destination: markers[markers.length-1].position,
+          waypoints: waypts,
+          travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+          }
+        });
+      }
+ 
+      function computeTotalDistance(result) {
+        var total = 0;
+        var myroute = result.routes[0];
+        for (i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000.
+        document.getElementById("total").innerHTML = total + " km";
+      }
 
 function init() {
     var mapDiv = $('#map')[0];
@@ -109,6 +156,10 @@ function init() {
     };
     map = new google.maps.Map(mapDiv, options);
     setMapOptions(map);
+    guide = $('#guide')[0];
+    if(guide != null){
+        guideInit();
+    }
 }
 
 window.onload = init;

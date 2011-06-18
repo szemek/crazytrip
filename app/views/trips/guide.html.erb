@@ -1,0 +1,17 @@
+<param id="guide" />
+
+<div id="map" class="big"></div> 
+<div id="directions"> 
+  <p> 
+  Total Distance:
+    <span id="total"> 
+    </span> 
+  </p> 
+</div>
+<div class="clear"></div>
+
+<param id="places"/>
+
+<% @places.each do |place| %>
+<param class="place" value="<%= place.lat %>|<%= place.lng %>|<%= place.name %>|<%= place.description %>" />
+<% end %>

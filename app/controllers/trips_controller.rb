@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   include TripsHelper
   before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
-  before_filter :correct_show, :only => [:show]
+  before_filter :correct_show, :only => [:show, :guide]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :correct_new, :only => [:new, :create]
 	before_filter :correct_destroy, :only => [:destroy]
@@ -35,6 +35,11 @@ class TripsController < ApplicationController
         WHERE "votes".trip_id = ?' , @trip.id]
     end
     @votes = @votes.paginate(:page => params[:page],:per_page => 10)
+  end
+  
+  def guide
+    @trip = Trip.find(params[:id])
+    @places = Place.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "points".id = "trip_points".point_id WHERE (("trip_points".trip_id = ?)) ORDER BY "trip_points"."order"', @trip.id]
   end
     
   def new
@@ -74,11 +79,13 @@ class TripsController < ApplicationController
       end
     else
       if @trip.update_attributes(params[:trip])
-        keys = params[:ordered_places].keys
-        for i in 0..keys.length-1 do
-          @trip_point = TripPoint.find(keys[i])
-          @trip_point.order = i
-          @trip_point.save
+        if params[:ordered_places]
+          keys = params[:ordered_places].keys
+          for i in 0..keys.length-1 do
+            @trip_point = TripPoint.find(keys[i])
+            @trip_point.order = i
+            @trip_point.save
+          end
         end
         flash[:success] = "Trip updated."
         redirect_to @trip
