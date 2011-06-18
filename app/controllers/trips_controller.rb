@@ -24,8 +24,8 @@ class TripsController < ApplicationController
       @votes = Vote.find_by_sql ['SELECT * FROM votes
         INNER JOIN users ON votes.user_id = users.id
         WHERE ((votes.trip_id = ? AND votes.user_id <> ?))' , @trip.id, current_user.id]
-      @vote = Vote.find_by_sql ['SELECT * FROM votes 
-        WHERE ((votes.user_id = ? AND votes.trip_id = ?))', current_user.id, @trip.id][0]
+      @vote = (Vote.find_by_sql ['SELECT * FROM votes 
+        WHERE ((votes.user_id = ? AND votes.trip_id = ?))', current_user.id, @trip.id])[0]
       if @vote
         @vote=Vote.new
       end
