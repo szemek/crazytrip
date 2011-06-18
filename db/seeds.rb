@@ -1655,7 +1655,7 @@ W wydanej w 2000 r. "Encyklopedii Krakowa" opis 120 istniejących kościołów k
 
 O przepełnieniu miasta świątyniami w momencie jego kryzysu w końcu XVIII w. świadczy choćby relacja Johanna Friedricha Zöllnera - w 1791 r. tak pisał o Krakowie: "W całym mieście jest nie więcej jak 1000-1100 domów, zresztą biorąc pod uwagę obszar, jaki ono zajmuje, liczba ich nie może być wyższa. Tym bardziej uderzające jest, gdy się słyszy, że znajdują się tu 72 kościoły i 30 klasztorów." Józef Wawel Louis, badacz dziejów Krakowa, w drugiej połowie XIX w. tak opisywał upadek miasta doby rozbiorów: "(...) na podciętej'
 
-Place.public.search_name("Kościół").search_name("M").all.each do |place|
+Place.search_name("Kościół", -1).search_name("M", -1).all.each do |place|
   rand(7).times do |n|
     file = File.new("db/kosciol#{n}.jpg")
     photo = place.photos.build
@@ -1707,7 +1707,7 @@ User.all.each do |user|
       trip = user.trips.build
       trip.name = Faker::Lorem.sentence
       trip.description = Faker::Lorem.paragraph  
-      Place.public.search_name(('a'.ord + rand('z'.ord - 'a'.ord)).chr).all.each do |place|
+      Place.search_name(('a'.ord + rand('z'.ord - 'a'.ord)).chr, -1).all.each do |place|
         trip.points << place.point
       end  
       trip.public=true  
@@ -1718,7 +1718,7 @@ User.all.each do |user|
       trip = user.trips.build
       trip.name = Faker::Lorem.sentence
       trip.description = Faker::Lorem.paragraph
-      Place.public.search_name(('a'.ord + rand('z'.ord - 'a'.ord)).chr).all.each do |place|
+      Place.search_name(('a'.ord + rand('z'.ord - 'a'.ord)).chr, -1).all.each do |place|
         trip.points << place.point
       end  
       user.places.each do |place|
