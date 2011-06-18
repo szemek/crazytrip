@@ -9,12 +9,10 @@ def index
 		  @search += User.search_last_name(params[:search]).all
 	  end
 	  if params[:trips]=="1"
-		  @search += Trip.public.search_name(params[:search]).all
-		  @search += current_user.trips.search_name(params[:search]).all
+		  @search += Trip.search_name(params[:search], current_user.id).all
 	  end
 	  if params[:places]=="1"
-		  @search += Place.public.search_name(params[:search]).all
-		  @search += current_user.places.search_name(params[:search]).all
+		  @search += Place.search_name(params[:search], current_user.id).all
 	  end
 	  if params[:search] && @search.empty?
 		  flash.now[:notice]="No results found."

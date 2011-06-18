@@ -26,8 +26,8 @@ class Place < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_and_belongs_to_many :place_categories
   
-  scope :search_name, lambda { |name|
-    where('name LIKE ?', '%' + name + '%')
+  scope :search_name, lambda { |name, user_id|
+    where('name LIKE ? AND (user_id = ? OR user_id IS NULL)', '%' + name + '%', user_id)
   }
 
   scope :public, lambda {

@@ -23,8 +23,8 @@ class Trip < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :trip_points, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
-  scope :search_name, lambda { |name|
-    where('name LIKE ?', '%' + name + '%')
+  scope :search_name, lambda { |name, user_id|
+    where('name LIKE ? AND (user_id = ? OR public)', '%' + name + '%', user_id)
   }
 
   scope :public, lambda {
@@ -36,7 +36,8 @@ class Trip < ActiveRecord::Base
   }
   
   def rating
-    votes.all.collect(&:rating).sum.to_f/votes.all.length if votes.all.length > 0
+    @vote = Vote.find_by_sql ['SELECT AVG("rating") AS rate FROM "votes" WHERE "votes".trip_id = ?', id]
+    @vote[0].rate
   end
 
 end

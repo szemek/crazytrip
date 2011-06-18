@@ -44,8 +44,9 @@
   <% end %>
 <% end %>
 
-<% if !@trip.votes.empty? %>
-  <h3>Trip's votes(<%= @trip.votes.count %>) - Average rating: <%= @trip.rating %></h3>
+<% if !@votes.empty? && @vote %>
+  <h3>Trip's votes(<%= @vote ? 1 + @votes.count : @votes.count %>)<br/>
+   - Average rating: <%= @trip.rating %></h3>
 <% end %>
 
 <% if current_user && current_user!=@trip.user && !current_user.admin %>

@@ -27,7 +27,7 @@
   <% if current_user %>
     <% @selection = current_user.trips.private.order("updated_at DESC").all %>
     <% if  !@selection.empty? %>
-      <% form_for @trip_point do |f| %>
+      <%= form_for @trip_point do |f| %>
       <%= select_tag "selection", options_from_collection_for_select(@selection, "id", "name") %>
       <%= hidden_field_tag :place_id, @place.id %>
       <div class="actions">
