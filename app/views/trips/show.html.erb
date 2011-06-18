@@ -23,9 +23,11 @@
 
 <% if !@places.empty? %>
 <h3>Places in trip</h3>
+<% if @trip.user==current_user && !@trip.public %>
 <em>(drag places to change order)</em>
+<% end %>
   <%= form_for(@trip) do |f| %>
-  <ul id="sortable" class="list">
+  <ul <% if @trip.user==current_user && !@trip.public %> id="sortable" <% end %> class="list">
     <% @places.each do |place| %>
       <li>
         <%= link_to place.name, place %>
@@ -34,9 +36,11 @@
       </li>
     <% end %>
   </ul>
+  <% if @trip.user==current_user && !@trip.public %>
     <div class="actions clear">
       <%= f.submit "Save order" %>
     </div>
+    <% end %>
   <% end %>
 <% end %>
 
