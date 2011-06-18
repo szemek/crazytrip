@@ -22,7 +22,7 @@ class PlacesController < ApplicationController
     @trip_point = TripPoint.new
     @title = @place.name
     @photos_list = @place.photos.all
-    @trips_list = Trip.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "trip_points".point_id = "points".id INNER JOIN "trips" ON "trips".id = "trip_points".trip_id WHERE ("trips".public OR "trips".user_id = ?)', current_user.id]
+    @trips_list = Trip.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "trip_points".point_id = "points".id INNER JOIN "trips" ON "trips".id = "trip_points".trip_id WHERE ("trips".public OR "trips".user_id = ?) AND places.id = ?', current_user.id, @place.id]
     #@trips_list = @place.point.trips.public.all
     #@trips_list += @place.point.trips.where(:user_id => current_user.id).all if current_user
     @trips_list = @trips_list.uniq.paginate(:page => params[:page])
