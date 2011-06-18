@@ -1,5 +1,5 @@
 <li>
-  <%= link_to "#{vote.user.first_name} #{vote.user.last_name}", vote.user %>'s comment:
+  <%= link_to "#{vote.first_name} #{vote.last_name}", user_path(vote.user_id) %>'s comment:
   <p><%= vote.comment %>
   <br />
   Rating: <%= vote.rating %>

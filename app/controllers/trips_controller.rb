@@ -20,15 +20,20 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @places = Place.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "points".id = "trip_points".point_id WHERE (("trip_points".trip_id = ?)) ORDER BY "trip_points"."order"', @trip.id]
     @title = @trip.name
-    @votes = @trip.votes
     if current_user
-      @vote=@votes.where(:user_id=>current_user.id).first
-      if !@vote
+      @votes = Vote.find_by_sql ['SELECT * FROM "votes" 
+        INNER JOIN "users" ON "votes".user_id = "users".id
+        WHERE "votes".trip_id = ? AND "votes".user_id <> ?' , @trip.id, current_user.id]
+      @vote = Vote.find_by_sql ['SELECT * FROM "votes" 
+        WHERE "votes".user_id = ? AND "votes".trip_id = ?', current_user.id, @trip.id][0]
+      if @vote
         @vote=Vote.new
       end
+    else
+      @votes = Vote.find_by_sql ['SELECT * FROM "votes" 
+        INNER JOIN "users" ON "votes".user_id = "users".id
+        WHERE "votes".trip_id = ?' , @trip.id]
     end
-    @votes=@votes.all
-    @votes.delete(@vote)
     @votes = @votes.paginate(:page => params[:page],:per_page => 10)
   end
     
