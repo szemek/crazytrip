@@ -32,6 +32,7 @@
   <ul <% if @trip.user==current_user && !@trip.public %> id="sortable" <% end %> class="list">
     <% @places.each do |place| %>
       <li>
+        <%= image_tag "http://google-maps-icons.googlecode.com/files/green" + (@places.index(place) + 1).to_s.rjust(2, "0") + ".png" %>
         <%= link_to place.name, place %>
         <%= hidden_field_tag "ordered_places[#{place.id}]"%>
         <param class="place" value="<%= place.lat %>|<%= place.lng %>|<%= place.name %>|<%= place.description %>" />
