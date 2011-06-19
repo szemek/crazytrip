@@ -18,7 +18,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @places = Place.find_by_sql ['SELECT * FROM places INNER JOIN points ON places.point_id = points.id INNER JOIN trip_points ON points.id = trip_points.point_id WHERE ((trip_points.trip_id = ?)) ORDER BY trip_points.order', @trip.id]
+    @places = Place.find_by_sql ['SELECT * FROM places INNER JOIN points ON places.point_id = points.id INNER JOIN trip_points ON points.id = trip_points.point_id WHERE ((trip_points.trip_id = ?)) ORDER BY trip_points."order"', @trip.id]
     @title = @trip.name
     if current_user
       @votes = Vote.find_by_sql ['SELECT * FROM votes
