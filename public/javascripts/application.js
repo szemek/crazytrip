@@ -93,7 +93,7 @@ function setMapOptions(map){
             if(i<10){
                 number = "0" + number;
             }
-            marker.setIcon(new google.maps.MarkerImage("http://google-maps-icons.googlecode.com/files/green" + number +".png"));
+            marker.setIcon(new google.maps.MarkerImage("http://google-maps-icons.googlecode.com/files/red" + number +".png"));
         }
     }
 }
