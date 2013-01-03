@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Crazytrip2::Application.load_tasks
+Crazytrip::Application.load_tasks

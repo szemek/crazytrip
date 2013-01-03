@@ -14,6 +14,7 @@
 #  updated_at    :datetime
 #
 
+require 'bcrypt'
 class User < ActiveRecord::Base
 
   attr_accessor :password

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,16 +17,16 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.binary   "data"
     t.string   "file_type"
     t.integer  "place_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "photos", ["place_id"], :name => "index_photos_on_place_id"
 
   create_table "place_categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "place_categories", ["name"], :name => "index_place_categories_on_name"
@@ -43,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.integer  "minutes",     :default => 0
     t.integer  "point_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "places", ["point_id"], :name => "index_places_on_point_id"
@@ -53,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
   create_table "points", :force => true do |t|
     t.decimal  "lat",        :precision => 15, :scale => 10, :default => 50.061933
     t.decimal  "lng",        :precision => 15, :scale => 10, :default => 19.937611
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
   end
 
   add_index "points", ["lat", "lng"], :name => "index_points_on_lat_and_lng"
@@ -64,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.integer  "point_id"
     t.datetime "date"
     t.integer  "order"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "trip_points", ["trip_id", "point_id"], :name => "index_trip_points_on_trip_id_and_point_id"
@@ -75,8 +76,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.boolean  "public",      :default => false
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "trips", ["user_id"], :name => "index_trips_on_user_id"
@@ -88,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -99,8 +100,8 @@ ActiveRecord::Schema.define(:version => 20110508231655) do
     t.integer  "user_id"
     t.integer  "rating"
     t.string   "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "votes", ["trip_id", "user_id"], :name => "index_votes_on_trip_id_and_user_id"
