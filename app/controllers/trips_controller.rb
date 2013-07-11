@@ -4,15 +4,15 @@ class TripsController < ApplicationController
   before_filter :correct_show, :only => [:show, :guide]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :correct_new, :only => [:new, :create]
-	before_filter :correct_destroy, :only => [:destroy]
+  before_filter :correct_destroy, :only => [:destroy]
 
   def index
     if current_user.admin?
     @title = "All trips"
     @trips = Trip.all
     else
-    	@title = "Your trips"
-    	@trips = Trip.where(:user_id=>current_user.id)
+      @title = "Your trips"
+      @trips = Trip.where(:user_id=>current_user.id)
     end
   end
 

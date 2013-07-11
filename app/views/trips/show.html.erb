@@ -2,12 +2,12 @@
 
 <div class="content">
   <% if ((current_user && current_user.admin) || @trip.user==current_user) %>
-  <%= link_to "delete", @trip,	:method => :delete,
-  															:confirm => "You sure?",
-  															:title => "Delete #{@trip.name}" %>
+  <%= link_to "delete", @trip,  :method => :delete,
+                                :confirm => "You sure?",
+                                :title => "Delete #{@trip.name}" %>
   <% end %>
   <% if @trip.user==current_user && !@trip.public %>
-	<%= link_to "edit", edit_trip_path(@trip) %>
+  <%= link_to "edit", edit_trip_path(@trip) %>
   <% end %>
   <% if (@trip.user==current_user) %>
     <p>This is your <%= @trip.public ? "public" : "private" %> trip.</p>
@@ -62,7 +62,7 @@
   <div>
   <% end %>
   <% if @vote %>
-  <%= link_to "delete comment", @vote,	:method => :delete %>
+  <%= link_to "delete comment", @vote,  :method => :delete %>
   <% end %>
 
 <% end %>

@@ -4,12 +4,12 @@
   - place
   <% end %>
   <% if (current_user.admin || !@search) %>
-  | <%= link_to "delete", place,	:method => :delete,
-  															:confirm => "You sure?",
-  															:title => "Delete #{place.name}" %>
+  | <%= link_to "delete", place,  :method => :delete,
+                                :confirm => "You sure?",
+                                :title => "Delete #{place.name}" %>
   <% end %>
-  <% if place.user==current_user && !@search %>  
-	| <%= link_to "edit", edit_place_path(place) %>
+  <% if place.user==current_user && !@search %>
+  | <%= link_to "edit", edit_place_path(place) %>
   <% end %>
 </li>
 

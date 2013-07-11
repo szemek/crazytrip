@@ -1,19 +1,19 @@
 class PlacesController < ApplicationController
   include PlaceHelper
 
-	before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :correct_show, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :correct_new, :only => [:new, :create]
-	before_filter :correct_destroy, :only => [:destroy]
+  before_filter :correct_destroy, :only => [:destroy]
 
   def index
-  	if current_user.admin?
-    	@title = "All places"
-    	@places = Place.all
+    if current_user.admin?
+      @title = "All places"
+      @places = Place.all
     else
-    	@title = "Your places"
-    	@places = Place.where(:user_id=>current_user.id)
+      @title = "Your places"
+      @places = Place.where(:user_id=>current_user.id)
     end
   end
 
@@ -40,15 +40,15 @@ class PlacesController < ApplicationController
     @point.save
     params[:place][:point]=@point
     if !current_user.admin?
-    	@place = current_user.places.build(params[:place])
+      @place = current_user.places.build(params[:place])
     else
-    	@place = Place.new(params[:place])
+      @place = Place.new(params[:place])
     end
     if @place.save
       flash[:success] = "Place added."
       redirect_to @place
     else
-    	@title = "Add place"
+      @title = "Add place"
       flash.now[:error] = error_message [@place, @point]
       render 'new'
     end

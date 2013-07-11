@@ -8,84 +8,84 @@ $(document).ready(function() {
 markers = new Array();
 
 function placeMarker(map, location) {
-	var marker = new google.maps.Marker({
-		position: location,
-		draggable: true,
-		map: map
-	});
-	markers.push(marker);
-	return marker;
+  var marker = new google.maps.Marker({
+    position: location,
+    draggable: true,
+    map: map
+  });
+  markers.push(marker);
+  return marker;
 }
 
 function setMapOptions(map){
-	// Coordinates
-	lat = $('#latitude')[0];
-	lng = $('#longitude')[0];
-	if(lat != null && lng != null){
-		lat = lat.value;
-		lng = lng.value;
-		position = new google.maps.LatLng(lat, lng);
-		map.setOptions({center: position});
-		var marker = new google.maps.Marker({
-			position: position,
-			map: map
-		});
-		// Draggable marker
-		draggable = $('#draggable')[0];
-		if(draggable != null){
-			marker.setDraggable(true);
-			// Set listener on dragend
-			google.maps.event.addListener(marker, 'dragend', function(event) {
-				position = marker.getPosition();
-				lat = position.toString().replace("(","").split(", ")[0];
-				lng = position.toString().replace(")","").split(", ")[1];
-				$('#place_point_lat')[0].value = lat;
-				$('#place_point_lng')[0].value = lng;
-			});
-		}
-	}
-	// Zoom
-	zoom = $("#zoom")[0];
-	if(zoom != null){
-		map.setOptions({zoom: parseInt(zoom.value)});
-	}
-	// Disable Default UI
-	disableDefaultUI = $('#disableDefaultUI')[0];
-	if(disableDefaultUI != null){
-		map.setOptions({disableDefaultUI: true});
-	}
-	// Add map listener for new place
-	addNewPlace = $('#addNewPlace')[0];
-	if(addNewPlace != null){
-		google.maps.event.addListener(map, 'click', function(event) {
-			position = event.latLng;
-			// Limit to only 1 marker
-			if(markers.length == 0){
-				marker = placeMarker(map, position);
-				lat = position.toString().replace("(","").split(", ")[0];
-				lng = position.toString().replace(")","").split(", ")[1];
-				$('#place_point_lat')[0].value = lat;
-				$('#place_point_lng')[0].value = lng;
-				
-				// Set listener on dragend
-				google.maps.event.addListener(marker, 'dragend', function(event) {
-					position = marker.getPosition();
-					lat = position.toString().replace("(","").split(", ")[0];
-					lng = position.toString().replace(")","").split(", ")[1];
-					$('#place_point_lat')[0].value = lat;
-					$('#place_point_lng')[0].value = lng;
-				});
-			}
-		});
+  // Coordinates
+  lat = $('#latitude')[0];
+  lng = $('#longitude')[0];
+  if(lat != null && lng != null){
+    lat = lat.value;
+    lng = lng.value;
+    position = new google.maps.LatLng(lat, lng);
+    map.setOptions({center: position});
+    var marker = new google.maps.Marker({
+      position: position,
+      map: map
+    });
+    // Draggable marker
+    draggable = $('#draggable')[0];
+    if(draggable != null){
+      marker.setDraggable(true);
+      // Set listener on dragend
+      google.maps.event.addListener(marker, 'dragend', function(event) {
+        position = marker.getPosition();
+        lat = position.toString().replace("(","").split(", ")[0];
+        lng = position.toString().replace(")","").split(", ")[1];
+        $('#place_point_lat')[0].value = lat;
+        $('#place_point_lng')[0].value = lng;
+      });
     }
-    
+  }
+  // Zoom
+  zoom = $("#zoom")[0];
+  if(zoom != null){
+    map.setOptions({zoom: parseInt(zoom.value)});
+  }
+  // Disable Default UI
+  disableDefaultUI = $('#disableDefaultUI')[0];
+  if(disableDefaultUI != null){
+    map.setOptions({disableDefaultUI: true});
+  }
+  // Add map listener for new place
+  addNewPlace = $('#addNewPlace')[0];
+  if(addNewPlace != null){
+    google.maps.event.addListener(map, 'click', function(event) {
+      position = event.latLng;
+      // Limit to only 1 marker
+      if(markers.length == 0){
+        marker = placeMarker(map, position);
+        lat = position.toString().replace("(","").split(", ")[0];
+        lng = position.toString().replace(")","").split(", ")[1];
+        $('#place_point_lat')[0].value = lat;
+        $('#place_point_lng')[0].value = lng;
+
+        // Set listener on dragend
+        google.maps.event.addListener(marker, 'dragend', function(event) {
+          position = marker.getPosition();
+          lat = position.toString().replace("(","").split(", ")[0];
+          lng = position.toString().replace(")","").split(", ")[1];
+          $('#place_point_lat')[0].value = lat;
+          $('#place_point_lng')[0].value = lng;
+        });
+      }
+    });
+    }
+
     places = $('#places')[0];
     if(places != null){
         places = $('.place');
         for (var i = 0; i < places.length; i++){
             var params = places[i].value.split("|");
             var myLatlng = new google.maps.LatLng(params[0],params[1]);
-            
+
             marker = placeMarker(map, myLatlng);
             marker.setDraggable(false);
             marker.setTitle(params[2] + "\n\n" + params[3]);
@@ -106,7 +106,7 @@ function guideInit(){
     directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById("directions"));
-    
+
     google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
         computeTotalDistance(directionsDisplay.directions);
     });
@@ -133,7 +133,7 @@ function calcRoute() {
           }
         });
       }
- 
+
       function computeTotalDistance(result) {
         var total = 0;
         var myroute = result.routes[0];

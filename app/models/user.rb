@@ -21,24 +21,24 @@ class User < ActiveRecord::Base
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :first_name,	:presence => true,
-  												:length   => { :maximum => 50 }
-	validates :last_name,	:presence => true,
-												:length   => { :maximum => 50 }
-  validates :email,	:presence => true,
+  validates :first_name,  :presence => true,
+                          :length   => { :maximum => 50 }
+  validates :last_name,  :presence => true,
+                        :length   => { :maximum => 50 }
+  validates :email,  :presence => true,
                     :format   => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false },
-                  	:length   => { :maximum => 50 }
-  validates :password, 	:presence     => {:on => :create},
-                       	:confirmation => true,
-                       	:length       => {:within => 6..40 , :allow_nil => true}
+                    :length   => { :maximum => 50 }
+  validates :password,   :presence     => {:on => :create},
+                         :confirmation => true,
+                         :length       => {:within => 6..40 , :allow_nil => true}
 
-	before_save :encrypt_password
-	before_destroy :delete_author_of_public_trips
+  before_save :encrypt_password
+  before_destroy :delete_author_of_public_trips
 
- 	has_many :trips, :dependent => :destroy
-	has_many :places, :dependent => :destroy
-	has_many :votes, :dependent => :destroy
+   has_many :trips, :dependent => :destroy
+  has_many :places, :dependent => :destroy
+  has_many :votes, :dependent => :destroy
 
   def has_password?(submitted_password)
     password_hash == encrypt(submitted_password)
@@ -57,14 +57,14 @@ class User < ActiveRecord::Base
   private
 
     def encrypt_password
-    	if !password.nil?
-      	self.password_salt = BCrypt::Engine.generate_salt if new_record?
-      	self.password_hash = encrypt(password)
-    	end
+      if !password.nil?
+        self.password_salt = BCrypt::Engine.generate_salt if new_record?
+        self.password_hash = encrypt(password)
+      end
     end
 
     def encrypt(string)
-			BCrypt::Engine.hash_secret(string, password_salt)
+      BCrypt::Engine.hash_secret(string, password_salt)
     end
 
     def delete_author_of_public_trips

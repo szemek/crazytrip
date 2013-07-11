@@ -14,9 +14,9 @@
 #
 
 class Place < ActiveRecord::Base
-  validates :name,	:presence => true
-  validates :point_id,	:presence => true
-  validates :minutes,	:numericality => { :greater_than_or_equal_to=> 0 }
+  validates :name,  :presence => true
+  validates :point_id,  :presence => true
+  validates :minutes,  :numericality => { :greater_than_or_equal_to=> 0 }
 
   belongs_to :point, :dependent => :destroy
   belongs_to :user
