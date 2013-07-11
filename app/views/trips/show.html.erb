@@ -6,11 +6,11 @@
   															:confirm => "You sure?",
   															:title => "Delete #{@trip.name}" %>
   <% end %>
-  <% if @trip.user==current_user && !@trip.public %>  
+  <% if @trip.user==current_user && !@trip.public %>
 	<%= link_to "edit", edit_trip_path(@trip) %>
   <% end %>
   <% if (@trip.user==current_user) %>
-    <p>This is your <%= @trip.public ? "public" : "private" %> trip.</p>  
+    <p>This is your <%= @trip.public ? "public" : "private" %> trip.</p>
   <% elsif @trip.user==nil  %>
     <p>This is public trip.</p>
   <% else %>
@@ -53,7 +53,7 @@
 
 <% if current_user && current_user!=@trip.user && !current_user.admin %>
   <h4>Your vote</h4>
-  
+
   <%= form_for :vote, @vote, :url => votes_path, :html => { :method => "post" }  do |f| %>
       <%= render 'votes/fields', :f => f %>
       <%= hidden_field_tag :trip_id, @trip.id  %>
@@ -64,15 +64,13 @@
   <% if @vote %>
   <%= link_to "delete comment", @vote,	:method => :delete %>
   <% end %>
-  
+
 <% end %>
 
-<%= will_paginate @votes%>
 <ul class="list">
   <%= render @votes %>
 </ul>
 
-<%= will_paginate @votes%>
 </div>
 
 <div class="clear"></div>

@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, 	:only => [:index, :edit, :update, :destroy]
-  before_filter :correct_user, 	:only => [:edit, :update]
-  before_filter :admin_user,   	:only => [:index, :destroy]
-  before_filter :new_user,			:only => [:new, :create]	
-	
+  before_filter :authenticate,   :only => [:index, :edit, :update, :destroy]
+  before_filter :correct_user,   :only => [:edit, :update]
+  before_filter :admin_user,     :only => [:index, :destroy]
+  before_filter :new_user,      :only => [:new, :create]
+
   def index
     @title = "All users"
-    @users = User.paginate(:page => params[:page])
+    @users = User.all
   end
 
   def show
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @title = "#{@user.first_name} #{@user.last_name}"
     @trip_list=@user.trips.where(:public=>true)
   end
-    
+
   def new
     @user = User.new
     @title = "Sign up"
@@ -40,13 +40,13 @@ class UsersController < ApplicationController
   def edit
     @title = "Edit user settings"
   end
-    
+
   def update
-		if params[:user][:password]=="" && params[:user][:password_confirmation]==""
-			params[:user].delete(:password)
-			params[:user].delete(:password_confirmation)
-  	end
-    if @user.update_attributes(params[:user])
+    if params[:user][:password]=="" && params[:user][:password_confirmation]==""
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    if @user.update_attributes(user_params)
       flash[:success] = "Profile updated."
       redirect_to @user
     else
@@ -64,12 +64,16 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-	private
-	
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user==@user
-  end
+  private
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user==@user
+    end
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email)
+    end
 
 end
 

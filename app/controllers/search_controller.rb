@@ -22,7 +22,7 @@ def index
 		params[:trips] = "1"
 		params[:places] = "1"
   end
-  @search = @search.uniq.paginate(:page => params[:page])
+  @search = @search.uniq
 end
 
 end

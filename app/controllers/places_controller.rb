@@ -1,19 +1,19 @@
 class PlacesController < ApplicationController
   include PlaceHelper
-	
+
 	before_filter :authenticate, :only => [:index, :new, :create, :edit, :update, :destroy]
   before_filter :correct_show, :only => [:show]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :correct_new, :only => [:new, :create]
 	before_filter :correct_destroy, :only => [:destroy]
-	
+
   def index
   	if current_user.admin?
     	@title = "All places"
-    	@places = Place.paginate(:page => params[:page])
+    	@places = Place.all
     else
     	@title = "Your places"
-    	@places = Place.where(:user_id=>current_user.id).paginate(:page => params[:page])
+    	@places = Place.where(:user_id=>current_user.id)
     end
   end
 
@@ -25,9 +25,9 @@ class PlacesController < ApplicationController
     @trips_list = Trip.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "trip_points".point_id = "points".id INNER JOIN "trips" ON "trips".id = "trip_points".trip_id WHERE ("trips".public OR "trips".user_id = ?) AND places.id = ?', current_user.id, @place.id]
     #@trips_list = @place.point.trips.public.all
     #@trips_list += @place.point.trips.where(:user_id => current_user.id).all if current_user
-    @trips_list = @trips_list.uniq.paginate(:page => params[:page])
+    @trips_list = @trips_list.uniq
   end
-    
+
   def new
     @place = Place.new
     @point = Point.new
@@ -59,7 +59,7 @@ class PlacesController < ApplicationController
     @point = @place.point
     @title = "Edit place"
   end
-    
+
   def update
     @place = Place.find(params[:id])
     if params[:commit]=="Make public"
@@ -71,10 +71,10 @@ class PlacesController < ApplicationController
         @title = "Edit place"
         flash.now[:error] = error_message [@place]
         render 'edit'
-      end   
+      end
     else
       @point = @place.point
-      point_success=@point.update_attributes(params[:place][:point]) 
+      point_success=@point.update_attributes(params[:place][:point])
       params[:place][:point]=@point
       if @place.update_attributes(params[:place]) && point_success
         flash[:success] = "Place updated."
@@ -92,5 +92,5 @@ class PlacesController < ApplicationController
     flash[:success] = "Place destroyed."
     redirect_to places_path
   end
-  
+
 end

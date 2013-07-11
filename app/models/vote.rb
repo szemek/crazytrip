@@ -13,9 +13,6 @@
 #
 
 class Vote < ActiveRecord::Base
-
-  attr_accessible :rating, :comment
-
   validates_inclusion_of :rating, :in => 1..10
   validates_presence_of :rating
   validates_presence_of :user_id
@@ -24,5 +21,4 @@ class Vote < ActiveRecord::Base
   belongs_to :trip
 
   validates :user_id, :uniqueness=>{ :scope=> :trip_id}
-
 end

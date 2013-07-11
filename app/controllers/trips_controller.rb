@@ -5,14 +5,14 @@ class TripsController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :correct_new, :only => [:new, :create]
 	before_filter :correct_destroy, :only => [:destroy]
-  
+
   def index
     if current_user.admin?
     @title = "All trips"
-    @trips = Trip.paginate(:page => params[:page])
+    @trips = Trip.all
     else
     	@title = "Your trips"
-    	@trips = Trip.where(:user_id=>current_user.id).paginate(:page => params[:page])
+    	@trips = Trip.where(:user_id=>current_user.id)
     end
   end
 
@@ -24,24 +24,23 @@ class TripsController < ApplicationController
       @votes = Vote.find_by_sql ['SELECT * FROM votes
         INNER JOIN users ON votes.user_id = users.id
         WHERE ((votes.trip_id = ? AND votes.user_id <> ?))' , @trip.id, current_user.id]
-      @vote = (Vote.find_by_sql ['SELECT * FROM votes 
+      @vote = (Vote.find_by_sql ['SELECT * FROM votes
         WHERE ((votes.user_id = ? AND votes.trip_id = ?))', current_user.id, @trip.id])[0]
       if @vote
         @vote=Vote.new
       end
     else
-      @votes = Vote.find_by_sql ['SELECT * FROM votes 
+      @votes = Vote.find_by_sql ['SELECT * FROM votes
         INNER JOIN users ON votes.user_id = users.id
         WHERE ((votes.trip_id = ?))' , @trip.id]
     end
-    @votes = @votes.paginate(:page => params[:page],:per_page => 10)
   end
-  
+
   def guide
     @trip = Trip.find(params[:id])
     @places = Place.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "points".id = "trip_points".point_id WHERE (("trip_points".trip_id = ?)) ORDER BY "trip_points"."order"', @trip.id]
   end
-    
+
   def new
     @trip = Trip.new
     @title = "Add new trip"

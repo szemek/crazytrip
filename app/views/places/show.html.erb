@@ -8,7 +8,7 @@
 <div class="content">
 
   <% if (@place.user==current_user) %>
-    <p>This is your private place.</p>  
+    <p>This is your private place.</p>
   <% elsif @place.user==nil  %>
     <p>This is public place.</p>
   <% else %>
@@ -20,7 +20,7 @@
   															:confirm => "You sure?",
   															:title => "Delete #{@place.name}" %>
   <% end %>
-  <% if @place.user==current_user %>  
+  <% if @place.user==current_user %>
 	<%= link_to "edit", edit_place_path(@place) %>
   <% end %>
 
@@ -35,14 +35,14 @@
       </div>
       <% end %>
     <% end %>
-  <% end %>  
-  
+  <% end %>
+
 <p id="description"><%= @place.description %></p>
 <p>Longitude <%= @place.point.lng.round(3) %> <br/>
 Latitude <%= @place.point.lat.round(3) %></p>
 <p>Approximate visit time <%= @place.minutes %> minutes</p>
 
-<% if @place.user==current_user %>  
+<% if @place.user==current_user %>
 <p><%= link_to "Add photo", new_place_photo_path(@place) %></p>
 <% end %>
 
@@ -58,11 +58,9 @@ Latitude <%= @place.point.lat.round(3) %></p>
 <% if @trips_list.count!=0 %>
 <h3>Trips with this point</h3>
 <ul class="list">
-  <%= will_paginate @trips_list %>
   <ul class="list">
     <%= render @trips_list%>
   </ul>
-  <%= will_paginate @trips_list%>
 </ul>
 <%end%>
 

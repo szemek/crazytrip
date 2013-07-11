@@ -13,12 +13,9 @@
 #
 
 class TripPoint < ActiveRecord::Base
-
-    attr_accessible :date, :order, :trip_id, :point_id
-
-		validates :trip_id, :uniqueness=>{ :scope=> :point_id}
-		validates_presence_of :point_id
-		validates_presence_of :trip_id
-  	belongs_to :trip
-  	belongs_to :point, :dependent => :destroy
+  validates :trip_id, :uniqueness=>{ :scope=> :point_id}
+  validates_presence_of :point_id
+  validates_presence_of :trip_id
+  belongs_to :trip
+  belongs_to :point, :dependent => :destroy
 end

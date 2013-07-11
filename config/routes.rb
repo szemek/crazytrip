@@ -2,7 +2,7 @@ Crazytrip::Application.routes.draw do
 
   root :to => 'pages#home'
 
-  match '/about',   :to => 'pages#about'
+  get '/about',   :to => 'pages#about'
 
   resources :users, :trips
 
@@ -10,19 +10,19 @@ Crazytrip::Application.routes.draw do
     resources :photos
   end
 
-  match '/signup',  :to => 'users#new'
+  get '/signup',  :to => 'users#new'
 
   resources :sessions, :only => [:new, :create, :destroy]
 
   resources :votes, :only => [:create, :destroy]
   resources :trip_points, :only => [:create, :destroy]
 
-  match '/search',  :to => 'search#index'
+  get '/search',  :to => 'search#index'
 
-  match '/signup',  :to => 'users#new'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
-  match '/trips/:id/guide', :to => 'trips#guide'
+  get '/signup',  :to => 'users#new'
+  get '/signin',  :to => 'sessions#new'
+  delete '/signout', :to => 'sessions#destroy'
+  get '/trips/:id/guide', :to => 'trips#guide'
 
-  match "*path" => redirect('/')
+  get "*path" => redirect('/')
 end

@@ -18,7 +18,6 @@ require 'bcrypt'
 class User < ActiveRecord::Base
 
   attr_accessor :password
-  attr_accessible :last_name, :first_name, :name, :email, :password, :password_confirmation
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -33,14 +32,14 @@ class User < ActiveRecord::Base
   validates :password, 	:presence     => {:on => :create},
                        	:confirmation => true,
                        	:length       => {:within => 6..40 , :allow_nil => true}
-	
+
 	before_save :encrypt_password
 	before_destroy :delete_author_of_public_trips
 
  	has_many :trips, :dependent => :destroy
 	has_many :places, :dependent => :destroy
-	has_many :votes, :dependent => :destroy  
-  
+	has_many :votes, :dependent => :destroy
+
   def has_password?(submitted_password)
     password_hash == encrypt(submitted_password)
   end
@@ -50,7 +49,7 @@ class User < ActiveRecord::Base
     return nil  if user.nil?
     return user if user.has_password?(submitted_password)
   end
-  
+
   scope :search_last_name, lambda { |last_name|
     where('last_name LIKE ?', '%' + last_name + '%')
   }
@@ -74,6 +73,6 @@ class User < ActiveRecord::Base
         trip.save
       }
     end
-    
+
 end
 

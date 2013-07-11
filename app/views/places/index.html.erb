@@ -1,10 +1,5 @@
 <p><%= link_to "Add new place", new_place_path if !current_user.admin %></p>
 
-<%= will_paginate %>
-
 <ul class="list">
   <%= render @places %>
 </ul>
-
-<%= will_paginate %>
-

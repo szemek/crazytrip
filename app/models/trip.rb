@@ -13,8 +13,6 @@
 #
 
 class Trip < ActiveRecord::Base
-
-  attr_accessible :name, :description
   validates :name, :presence => true
 
   has_many :trip_points, :dependent => :destroy
@@ -30,11 +28,11 @@ class Trip < ActiveRecord::Base
   scope :public, lambda {
     where(:public => true)
   }
-  
+
   scope :private, lambda {
     where(:public => false)
   }
-  
+
   def rating
     @vote = Vote.find_by_sql ['SELECT AVG("rating") AS rate FROM "votes" WHERE "votes".trip_id = ?', id]
     @vote[0].rate
