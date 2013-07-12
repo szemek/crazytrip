@@ -23,8 +23,6 @@ class PlacesController < ApplicationController
     @title = @place.name
     @photos_list = @place.photos.all
     @trips_list = Trip.find_by_sql ['SELECT * FROM "places" INNER JOIN "points" ON "places".point_id = "points".id INNER JOIN "trip_points" ON "trip_points".point_id = "points".id INNER JOIN "trips" ON "trips".id = "trip_points".trip_id WHERE ("trips".public OR "trips".user_id = ?) AND places.id = ?', current_user.id, @place.id]
-    #@trips_list = @place.point.trips.public.all
-    #@trips_list += @place.point.trips.where(:user_id => current_user.id).all if current_user
     @trips_list = @trips_list.uniq
   end
 
@@ -36,14 +34,16 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @point = Point.new(params[:place][:point])
-    @point.save
-    params[:place][:point]=@point
-    if !current_user.admin?
-      @place = current_user.places.build(params[:place])
+    @point = Point.create(point_params)
+
+    if current_user.admin?
+      @place = Place.new(place.params)
     else
-      @place = Place.new(params[:place])
+      @place = current_user.places.build(place_params)
     end
+
+    @place.point = @point
+
     if @place.save
       flash[:success] = "Place added."
       redirect_to @place
@@ -93,4 +93,13 @@ class PlacesController < ApplicationController
     redirect_to places_path
   end
 
+  private
+
+    def place_params
+      params.require(:place).permit(:name, :description, :point, :minutes)
+    end
+
+    def point_params
+      params[:place].require(:point).permit(:lat, :lng)
+    end
 end

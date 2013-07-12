@@ -47,11 +47,12 @@ class TripsController < ApplicationController
   end
 
   def create
-    if !current_user.admin?
-      @trip = current_user.trips.build(params[:trip])
+    if current_user.admin?
+      @trip = Trip.new(trip_params)
     else
-        @trip = Trip.new(params[:trip])
+      @trip = current_user.trips.build(trip_params)
     end
+
     if @trip.save
       flash[:success] = "Trip created. Now you can add points. When you finish - edit your route."
       redirect_to :action => 'index', :controller => 'search'
@@ -101,4 +102,10 @@ class TripsController < ApplicationController
     flash[:success] = "Trip destroyed."
     redirect_to trips_path
   end
+
+  private
+
+    def trip_params
+      params.require(:trip).permit(:name, :description)
+    end
 end
