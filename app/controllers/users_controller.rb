@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   def index
     @title = "All users"
     @users = User.all
+
+    @users = @users.page(params[:page])
   end
 
   def show

@@ -14,6 +14,8 @@ class TripsController < ApplicationController
       @title = "Your trips"
       @trips = Trip.where(:user_id=>current_user.id)
     end
+
+    @trips = @trips.page(params[:page])
   end
 
   def show

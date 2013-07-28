@@ -5,10 +5,10 @@
   <% end %>
   <% if ((current_user && current_user.admin) || !@search) && !@trips_list %>
   | <%= link_to "delete", trip,  :method => :delete,
-                                :confirm => "You sure?",
+                                :data => { :confirm => "You sure?" },
                                 :title => "Delete #{trip.name}" %>
   <% end %>
-  <% if trip.user==current_user && !trip.public && !@search && !@trips_list %>
+  <% if trip.user_id == current_user.id && !trip.public && !@search && !@trips_list %>
   | <%= link_to "edit", edit_trip_path(trip) %>
   <% end %>
 </li>
