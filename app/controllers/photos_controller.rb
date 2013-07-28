@@ -1,17 +1,15 @@
 class PhotosController < ApplicationController
   include PhotosHelper
-  
+
   before_filter :authenticate, :only => [:new, :create, :destroy]
   before_filter :correct_create, :only => [:new, :create]
   before_filter :correct_destroy, :only => [:destroy]
-  
-  caches_page :show
-  
+
   def show
     @photo = Photo.find(params[:id])
     send_data @photo.data, :type => @photo.file_type, :disposition => 'inline'
   end
-  
+
   def new
     @photo = Photo.new
     @title = "Add photo"
@@ -31,7 +29,7 @@ class PhotosController < ApplicationController
       render 'new'
     end
   end
-  
+
   def destroy
     @photo = Photo.find(params[:id])
     @place = @photo.place
