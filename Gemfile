@@ -6,6 +6,7 @@ gem 'sqlite3', '1.3.7'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'thin', '>= 1.5.1'
+gem 'kaminari', '>= 0.14.1'
 
 group :development do
   gem 'better_errors'
