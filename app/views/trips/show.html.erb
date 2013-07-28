@@ -3,7 +3,7 @@
 <div class="content">
   <% if ((current_user && current_user.admin) || @trip.user==current_user) %>
   <%= link_to "delete", @trip,  :method => :delete,
-                                :confirm => "You sure?",
+                                :data => { :confirm => "You sure?" },
                                 :title => "Delete #{@trip.name}" %>
   <% end %>
   <% if @trip.user==current_user && !@trip.public %>

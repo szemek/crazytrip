@@ -9,7 +9,7 @@
 <param id="draggable" />
 <div class="content">
   <p>This is your private place. <%= f.submit "Make public",
-                                :confirm => "You sure? This is irreversible operation.",
+                                :data => { :confirm => "You sure? This is irreversible operation." },
                                 :title => "Make #{@place.name} public" %> </p>
 
 

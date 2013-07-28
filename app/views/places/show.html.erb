@@ -17,7 +17,7 @@
 
   <% if ((current_user && current_user.admin) || @place.user==current_user) %>
   <%= link_to "delete", @place,  :method => :delete,
-                                :confirm => "You sure?",
+                                :data => { :confirm => "You sure?" },
                                 :title => "Delete #{@place.name}" %>
   <% end %>
   <% if @place.user==current_user %>
