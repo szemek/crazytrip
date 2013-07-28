@@ -15,6 +15,8 @@ class PlacesController < ApplicationController
       @title = "Your places"
       @places = Place.where(:user_id=>current_user.id)
     end
+
+    @places = @places.page(params[:page])
   end
 
   def show
